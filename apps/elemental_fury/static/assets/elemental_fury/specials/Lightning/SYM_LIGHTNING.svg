@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Lightning Voltage Bloom Filter -->
+    <filter id="lightningGlow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="6" result="b1" />
+      <feGaussianBlur stdDeviation="15" result="b2" />
+      <feMerge>
+        <feMergeNode in="b2" />
+        <feMergeNode in="b1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="boltIntense" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b1" />
+      <feGaussianBlur stdDeviation="8" result="b2" />
+      <feGaussianBlur stdDeviation="20" result="b3" />
+      <feMerge>
+        <feMergeNode in="b3" />
+        <feMergeNode in="b2" />
+        <feMergeNode in="b1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Storm Void -->
+    <radialGradient id="stormTileBg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#240742" />
+      <stop offset="55%" stop-color="#110221" />
+      <stop offset="100%" stop-color="#04000A" />
+    </radialGradient>
+
+    <!-- Basalt Stone Bevel -->
+    <linearGradient id="stormBasalt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4C1D95" />
+      <stop offset="35%" stop-color="#2E1065" />
+      <stop offset="70%" stop-color="#1E0A3D" />
+      <stop offset="100%" stop-color="#0A0217" />
+    </linearGradient>
+
+    <!-- Violent Lightning Gradient -->
+    <linearGradient id="voltageBolt" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="25%" stop-color="#E879F9" />
+      <stop offset="60%" stop-color="#A855F7" />
+      <stop offset="85%" stop-color="#7E22CE" />
+      <stop offset="100%" stop-color="#3B0764" />
+    </linearGradient>
+
+    <!-- Electric Cyan Arc Accent -->
+    <linearGradient id="cyanArc" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Storm Void Base -->
+  <rect x="24" y="24" width="464" height="464" rx="42" fill="url(#stormTileBg)" stroke="#17032E" stroke-width="4" />
+
+  <!-- Heavy Angular Basalt Tile Chasm -->
+  <polygon points="256,40 472,256 256,472 40,256" fill="url(#stormBasalt)" stroke="#090114" stroke-width="8" />
+  
+  <!-- Inner Chiseled Storm Plate -->
+  <polygon points="256,68 444,256 256,444 68,256" fill="#0C0219" stroke="#7E22CE" stroke-width="3.5" />
+
+  <!-- 4-Way Chain Conduits (Cardinals to connect adjacent tiles) -->
+  <g stroke="#A855F7" stroke-width="4" opacity="0.8" filter="url(#lightningGlow)">
+    <line x1="256" y1="40" x2="256" y2="110" stroke-linecap="round" />
+    <line x1="472" y1="256" x2="402" y2="256" stroke-linecap="round" />
+    <line x1="256" y1="472" x2="256" y2="402" stroke-linecap="round" />
+    <line x1="40" y1="256" x2="110" y2="256" stroke-linecap="round" />
+  </g>
+
+  <!-- Roiling Heavy Storm Clouds Behind Bolt -->
+  <g fill="#170530" stroke="#3B0764" stroke-width="2" opacity="0.9">
+    <circle cx="210" cy="180" r="55" />
+    <circle cx="300" cy="170" r="60" />
+    <circle cx="256" cy="220" r="65" />
+    <circle cx="180" cy="280" r="50" />
+    <circle cx="330" cy="290" r="52" />
+  </g>
+
+  <!-- Secondary Branched Plasma Arcs (Cyan & Violet) -->
+  <g fill="none" stroke="url(#cyanArc)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="miter" filter="url(#lightningGlow)">
+    <path d="M 240 100 L 210 160 L 230 190 L 170 230 L 190 280 L 140 340" />
+    <path d="M 270 120 L 310 170 L 290 210 L 350 260 L 320 310 L 370 360" />
+    <path d="M 230 250 L 170 270 L 150 320" />
+    <path d="M 280 260 L 340 280 L 360 330" />
+  </g>
+
+  <!-- Massive Primary Supercell Lightning Bolt (Centered) -->
+  <g filter="url(#boltIntense)">
+    <!-- 3D Shadow Strike -->
+    <polygon points="275,55 195,225 265,225 185,455 335,245 255,245" fill="#05000C" transform="translate(6, 6)" />
+    
+    <!-- Outer Voltage Core -->
+    <polygon points="275,55 195,225 265,225 185,455 335,245 255,245" 
+             fill="url(#voltageBolt)" stroke="#C084FC" stroke-width="5" stroke-linejoin="round" />
+    
+    <!-- White-Hot Pure Plasma Spine -->
+    <polygon points="270,75 210,225 260,225 205,420 315,255 255,255" 
+             fill="#FFFFFF" />
+  </g>
+
+  <!-- Chain Node Terminal Circles (Cardinal Connecting Nodes) -->
+  <circle cx="256" cy="40" r="7" fill="#FFFFFF" filter="url(#boltIntense)" />
+  <circle cx="472" cy="256" r="7" fill="#FFFFFF" filter="url(#boltIntense)" />
+  <circle cx="256" cy="472" r="7" fill="#FFFFFF" filter="url(#boltIntense)" />
+  <circle cx="40" cy="256" r="7" fill="#FFFFFF" filter="url(#boltIntense)" />
+
+  <!-- Center Impact Nova -->
+  <circle cx="256" cy="256" r="8" fill="#FFFFFF" filter="url(#boltIntense)" />
+</svg>

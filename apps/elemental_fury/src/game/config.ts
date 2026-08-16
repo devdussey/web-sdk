@@ -761,6 +761,15 @@ export default {
 		S: {
 			special_properties: ['scatter'],
 		},
+		C: {
+			special_properties: ['coin'],
+		},
+		T: {
+			special_properties: ['lightning'],
+		},
+		I: {
+			special_properties: ['ice'],
+		},
 	},
 	paddingReels: {
 		basegame: [

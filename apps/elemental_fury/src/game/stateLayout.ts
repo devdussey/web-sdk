@@ -2,8 +2,8 @@ import { createLayout } from 'utils-layout';
 
 export const { stateLayout, stateLayoutDerived } = createLayout({
 	backgroundRatio: {
-		normal: 2039 / 1000,
-		portrait: 1242 / 2208,
+		normal: 1920 / 1080,
+		portrait: 1080 / 1920,
 	},
 	mainSizesMap: {
 		desktop: { width: 1422, height: 800 },

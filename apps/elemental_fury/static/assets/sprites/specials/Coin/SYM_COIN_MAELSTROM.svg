@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <!-- Master Drop Shadow Filter -->
+    <filter id="coinShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.8" />
+    </filter>
+
+    <!-- Wind Glow Highlight Filter -->
+    <filter id="windGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Outer Medallion Rim Gradient -->
+    <linearGradient id="medallionRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0FDFA" />
+      <stop offset="25%" stop-color="#5EEAD4" />
+      <stop offset="60%" stop-color="#0D9488" />
+      <stop offset="100%" stop-color="#042F2E" />
+    </linearGradient>
+
+    <!-- Inner Whirling Core Radial Gradient -->
+    <radialGradient id="vortexCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#CCFBF1" />
+      <stop offset="40%" stop-color="#2DD4BF" />
+      <stop offset="75%" stop-color="#0F766E" />
+      <stop offset="100%" stop-color="#042F2E" />
+    </radialGradient>
+
+    <!-- Gold Accent Bezel Gradient -->
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="50%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#78350F" />
+    </linearGradient>
+  </defs>
+
+  <!-- 1. Master Coin Chassis -->
+  <g filter="url(#coinShadow)">
+    <!-- Outer Heavy Medallion Ring -->
+    <circle cx="100" cy="100" r="90" fill="url(#medallionRim)" stroke="#042F2E" stroke-width="4" />
+
+    <!-- Gold Inlaid Border -->
+    <circle cx="100" cy="100" r="82" fill="none" stroke="url(#goldAccent)" stroke-width="3" stroke-dasharray="8,4" />
+
+    <!-- Inner Vortex Cavity -->
+    <circle cx="100" cy="100" r="74" fill="url(#vortexCore)" stroke="#0D9488" stroke-width="2.5" />
+  </g>
+
+  <!-- 2. Aerodynamic Kinetic Wind Spiral Blades -->
+  <g filter="url(#windGlow)">
+    <!-- Spiral Blade 1 -->
+    <path d="M100,100 Q130,45 160,65 Q135,90 100,100 Z" fill="#F0FDFA" opacity="0.9" />
+    <!-- Spiral Blade 2 -->
+    <path d="M100,100 Q155,130 135,160 Q110,135 100,100 Z" fill="#5EEAD4" opacity="0.85" />
+    <!-- Spiral Blade 3 -->
+    <path d="M100,100 Q70,155 40,135 Q65,110 100,100 Z" fill="#F0FDFA" opacity="0.9" />
+    <!-- Spiral Blade 4 -->
+    <path d="M100,100 Q45,70 65,40 Q90,65 100,100 Z" fill="#5EEAD4" opacity="0.85" />
+  </g>
+
+  <!-- 3. Central Energy Eye & Coin Core -->
+  <circle cx="100" cy="100" r="28" fill="#042F2E" stroke="#5EEAD4" stroke-width="2" />
+  <circle cx="100" cy="100" r="18" fill="#F0FDFA" filter="url(#windGlow)" />
+  <circle cx="100" cy="100" r="8" fill="#0D9488" />
+
+  <!-- 4. Cardinal Runic Shards -->
+  <polygon points="100,14 105,26 95,26" fill="#FEF08A" />
+  <polygon points="186,100 174,105 174,95" fill="#FEF08A" />
+  <polygon points="100,186 105,174 95,174" fill="#FEF08A" />
+  <polygon points="14,100 26,105 26,95" fill="#FEF08A" />
+</svg>

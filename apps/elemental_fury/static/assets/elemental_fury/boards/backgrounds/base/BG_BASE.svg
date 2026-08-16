@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Atmosphere Bloom Filter -->
+    <filter id="bgGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="intenseGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="14" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Void Sky Gradient -->
+    <radialGradient id="skyVoid" cx="50%" cy="50%" r="75%">
+      <stop offset="0%" stop-color="#0F091A" />
+      <stop offset="45%" stop-color="#07030D" />
+      <stop offset="85%" stop-color="#020005" />
+      <stop offset="100%" stop-color="#000000" />
+    </radialGradient>
+
+    <!-- Central Singularity Tear Gradient (Behind 6x5 Board) -->
+    <radialGradient id="riftBackdrop" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1E0B36" stop-opacity="0.8" />
+      <stop offset="55%" stop-color="#0D031A" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- TOP-LEFT: Subzero Glacial Gradient -->
+    <linearGradient id="iceCrag" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E0F2FE" />
+      <stop offset="35%" stop-color="#38BDF8" />
+      <stop offset="70%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#082F49" />
+    </linearGradient>
+
+    <!-- TOP-RIGHT: Wildfire Magma Gradient -->
+    <linearGradient id="volcanicCrag" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="30%" stop-color="#F97316" />
+      <stop offset="65%" stop-color="#DC2626" />
+      <stop offset="100%" stop-color="#450A0A" />
+    </linearGradient>
+
+    <!-- BOTTOM-LEFT: Supercell Storm Gradient -->
+    <linearGradient id="stormCrag" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C084FC" />
+      <stop offset="40%" stop-color="#7E22CE" />
+      <stop offset="80%" stop-color="#2E1065" />
+      <stop offset="100%" stop-color="#0F051D" />
+    </linearGradient>
+
+    <!-- BOTTOM-RIGHT: Maelstrom Gale Gradient -->
+    <linearGradient id="windCrag" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#5EEAD4" />
+      <stop offset="40%" stop-color="#0D9488" />
+      <stop offset="80%" stop-color="#134E4A" />
+      <stop offset="100%" stop-color="#041F1E" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1920" height="1080" fill="url(#skyVoid)" />
+
+  <!-- ==========================================
+       1. COSMIC STAR FIELD & NEBULA DUST
+       ========================================== -->
+  <g fill="#FFFFFF" opacity="0.6">
+    <circle cx="200" cy="180" r="1.5" />
+    <circle cx="340" cy="90" r="1" />
+    <circle cx="1650" cy="120" r="2" />
+    <circle cx="1780" cy="220" r="1.5" />
+    <circle cx="180" cy="880" r="1.5" />
+    <circle cx="290" cy="990" r="2" />
+    <circle cx="1680" cy="920" r="1.5" />
+    <circle cx="1820" cy="850" r="1" />
+    <circle cx="960" cy="80" r="1" opacity="0.3" />
+    <circle cx="960" cy="1000" r="1" opacity="0.3" />
+  </g>
+
+  <!-- ==========================================
+       2. CENTRAL RIFT SINGULARITY (Behind Reel Grid Area)
+       ========================================== -->
+  <!-- Ambient Rift Core Bloom -->
+  <ellipse cx="960" cy="540" rx="600" ry="480" fill="url(#riftBackdrop)" filter="url(#intenseGlow)" />
+
+  <!-- Gravitational Suction Spiral Lines (Faint Background Lines) -->
+  <g fill="none" stroke-linecap="round" opacity="0.35">
+    <!-- Top-Left Ice Spiral to Center -->
+    <path d="M 150 150 C 450 120 750 320 960 540" stroke="#38BDF8" stroke-width="4" stroke-dasharray="12, 16" filter="url(#bgGlow)" />
+    <!-- Top-Right Fire Spiral to Center -->
+    <path d="M 1770 150 C 1470 120 1170 320 960 540" stroke="#F97316" stroke-width="4" stroke-dasharray="12, 16" filter="url(#bgGlow)" />
+    <!-- Bottom-Left Storm Spiral to Center -->
+    <path d="M 150 930 C 450 960 750 760 960 540" stroke="#A855F7" stroke-width="4" stroke-dasharray="12, 16" filter="url(#bgGlow)" />
+    <!-- Bottom-Right Wind Spiral to Center -->
+    <path d="M 1770 930 C 1470 960 1170 760 960 540" stroke="#2DD4BF" stroke-width="4" stroke-dasharray="12, 16" filter="url(#bgGlow)" />
+  </g>
+
+  <!-- Subtle Event Horizon Void Ring (Behind Board Chassis) -->
+  <circle cx="960" cy="540" r="280" fill="#030106" stroke="#1E0B36" stroke-width="4" opacity="0.6" />
+
+  <!-- ==========================================
+       3. TOP-LEFT REGION: SUBZERO GLACIAL SPIRES
+       ========================================== -->
+  <!-- Giant Background Glacier Mass -->
+  <polygon points="-50,-50 480,-50 340,320 180,240 70,420 -50,380" 
+           fill="#041321" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+  
+  <!-- Foreground Chiseled Ice Spires -->
+  <polygon points="-30,-30 380,-30 260,260 120,200" 
+           fill="url(#iceCrag)" stroke="#000000" stroke-width="8" stroke-linejoin="round" />
+  <polygon points="120,200 260,260 210,360 90,320" 
+           fill="#0284C7" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+  <polygon points="260,260 380,-30 430,140 320,290" 
+           fill="#BAE6FD" opacity="0.6" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+
+  <!-- Razor Icicles & Floating Frost Shards -->
+  <polygon points="160,280 200,410 180,290" fill="#FFFFFF" stroke="#000000" stroke-width="4" filter="url(#bgGlow)" />
+  <polygon points="280,220 330,340 300,230" fill="#FFFFFF" stroke="#000000" stroke-width="4" filter="url(#bgGlow)" />
+  <polygon points="400,180 430,240 390,230" fill="#38BDF8" stroke="#000000" stroke-width="3" />
+
+  <!-- Subzero Ambient Mist Glow -->
+  <ellipse cx="200" cy="180" rx="180" ry="120" fill="#38BDF8" opacity="0.18" filter="url(#intenseGlow)" />
+
+  <!-- ==========================================
+       4. TOP-RIGHT REGION: WILDFIRE VOLCANIC CRAGS
+       ========================================== -->
+  <!-- Giant Background Obsidian Rock Mass -->
+  <polygon points="1970,-50 1440,-50 1580,320 1740,240 1850,420 1970,380" 
+           fill="#1C0505" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+
+  <!-- Foreground Magma-Fractured Rocks -->
+  <polygon points="1950,-30 1540,-30 1660,260 1800,200" 
+           fill="url(#volcanicCrag)" stroke="#000000" stroke-width="8" stroke-linejoin="round" />
+  <polygon points="1800,200 1660,260 1710,360 1830,320" 
+           fill="#991B1B" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+  <polygon points="1660,260 1540,-30 1490,140 1600,290" 
+           fill="#FEF08A" opacity="0.6" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+
+  <!-- Molten Lava Veins in Rock -->
+  <path d="M 1580 40 L 1630 150 L 1600 230 L 1670 320" fill="none" stroke="#FDE047" stroke-width="5" stroke-linecap="round" filter="url(#bgGlow)" />
+  <path d="M 1740 100 L 1780 180 L 1740 260" fill="none" stroke="#EA580C" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Floating Fiery Embers -->
+  <circle cx="1520" cy="180" r="4" fill="#FEF08A" filter="url(#bgGlow)" />
+  <circle cx="1620" cy="340" r="3.5" fill="#F97316" filter="url(#bgGlow)" />
+  <circle cx="1450" cy="240" r="3" fill="#DC2626" />
+  <ellipse cx="1720" cy="180" rx="180" ry="120" fill="#EA580C" opacity="0.18" filter="url(#intenseGlow)" />
+
+  <!-- ==========================================
+       5. BOTTOM-LEFT REGION: SUPERCELL THUNDER CHASM
+       ========================================== -->
+  <!-- Heavy Rolling Black Stormhead Silhouette -->
+  <path d="M -50 1130 L 460 1130 C 440 980 340 920 380 840 C 300 810 240 850 180 780 C 100 810 60 900 -50 940 Z" 
+        fill="#0C0317" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+
+  <!-- Foreground Thundercloud Formations -->
+  <path d="M -30 1110 L 380 1110 C 350 990 280 940 310 880 C 240 860 190 890 140 830 C 80 860 40 930 -30 960 Z" 
+        fill="url(#stormCrag)" stroke="#000000" stroke-width="8" stroke-linejoin="round" />
+
+  <!-- Violet Lightning Strike Grounding into Chasm -->
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="miter" filter="url(#bgGlow)">
+    <polyline points="280,740 230,810 260,820 190,900 220,910 140,1020" stroke-width="6" />
+    <polyline points="230,810 170,830 190,860 130,900" stroke-width="3" stroke="#C084FC" />
+    <polyline points="340,840 300,890 320,910 270,980" stroke-width="3.5" stroke="#E879F9" />
+  </g>
+
+  <!-- Ionized Storm Glow -->
+  <ellipse cx="220" cy="900" rx="180" ry="120" fill="#9333EA" opacity="0.22" filter="url(#intenseGlow)" />
+
+  <!-- ==========================================
+       6. BOTTOM-RIGHT REGION: MAELSTROM GALE CLIFFS
+       ========================================== -->
+  <!-- Swept Slate Rock Crags Exposed to Cyclone -->
+  <polygon points="1970,1130 1460,1130 1560,940 1680,880 1760,760 1970,820" 
+           fill="#021414" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+
+  <!-- Foreground Wind-Eroded Slate Cliffs -->
+  <polygon points="1950,1110 1540,1110 1620,960 1720,910 1800,810 1950,860" 
+           fill="url(#windCrag)" stroke="#000000" stroke-width="8" stroke-linejoin="round" />
+  <polygon points="1620,960 1720,910 1670,1040 1570,1030" 
+           fill="#0D9488" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+
+  <!-- Howling Gale Air Streaks & Floating Torn Shrouds -->
+  <path d="M 1480 840 C 1600 810 1750 860 1880 800" fill="none" stroke="#5EEAD4" stroke-width="5" stroke-linecap="round" filter="url(#bgGlow)" />
+  <path d="M 1420 920 C 1540 880 1660 920 1780 890" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" filter="url(#bgGlow)" />
+  <path d="M 1520 1000 C 1640 960 1740 990 1840 970" fill="none" stroke="#2DD4BF" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Floating Slate Debris -->
+  <polygon points="1440,860 1465,845 1455,875" fill="#134E4A" stroke="#000000" stroke-width="2.5" />
+  <polygon points="1510,790 1530,780 1525,800" fill="#134E4A" stroke="#000000" stroke-width="2.5" />
+
+  <!-- Maelstrom Teal Ambient Glow -->
+  <ellipse cx="1700" cy="900" rx="180" ry="120" fill="#0D9488" opacity="0.2" filter="url(#intenseGlow)" />
+
+  <!-- ==========================================
+       7. COMIC INK TEXTURE HATCHING ACROSS PERIMETER
+       ========================================== -->
+  <g stroke="#000000" stroke-width="4" stroke-linecap="round">
+    <!-- Top-Left Ice Hatching -->
+    <line x1="80" y1="120" x2="110" y2="150" />
+    <line x1="60" y1="150" x2="90" y2="180" />
+    <!-- Top-Right Fire Hatching -->
+    <line x1="1840" y1="120" x2="1810" y2="150" />
+    <line x1="1860" y1="150" x2="1830" y2="180" />
+    <!-- Bottom-Left Storm Hatching -->
+    <line x1="120" y1="990" x2="150" y2="960" />
+    <line x1="100" y1="1020" x2="130" y2="990" />
+    <!-- Bottom-Right Wind Hatching -->
+    <line x1="1800" y1="990" x2="1770" y2="960" />
+    <line x1="1820" y1="1020" x2="1790" y2="990" />
+  </g>
+</svg>

@@ -26,12 +26,16 @@
 	import GlobalMultiplier from './GlobalMultiplier.svelte';
 	import MultiplierBoard from './MultiplierBoard.svelte';
 	import MultiplierTotal from './MultiplierTotal.svelte';
+	import SubzeroOverlay from './SubzeroOverlay.svelte';
+	import SupercellOverlay from './SupercellOverlay.svelte';
+	import MaelstromOverlay from './MaelstromOverlay.svelte';
+	import WildfireOverlay from './WildfireOverlay.svelte';
 	import Win from './Win.svelte';
 	import FreeSpinIntro from './FreeSpinIntro.svelte';
+	import RiftReveal from './RiftReveal.svelte';
 	import FreeSpinCounter from './FreeSpinCounter.svelte';
 	import FreeSpinOutro from './FreeSpinOutro.svelte';
 	import Transition from './Transition.svelte';
-	import I18nTest from './I18nTest.svelte';
 
 	const context = getContext();
 
@@ -56,11 +60,6 @@
 		<LoadingScreen onloaded={() => (context.stateLayout.showLoadingScreen = false)} />
 	{:else}
 		<ResumeBet />
-		<!--
-			The reason why <Sound /> is rendered after clicking the loading screen:
-			"Autoplay with sound is allowed if: The user has interacted with the domain (click, tap, etc.)."
-			Ref: https://developer.chrome.com/blog/autoplay
-		-->
 		<Sound />
 
 		<MainContainer>
@@ -70,13 +69,16 @@
 		<MainContainer>
 			<Board />
 			<Anticipations />
+			<WildfireOverlay />
+			<SupercellOverlay />
+			<MaelstromOverlay />
+			<SubzeroOverlay />
 			<TumbleWinAmount />
 			<GlobalMultiplier />
 		</MainContainer>
 
 		<MainContainer>
 			<TumbleBoard />
-			<!-- <TumbleAnticipations /> -->
 			<ClusterWinAmounts />
 		</MainContainer>
 
@@ -87,16 +89,17 @@
 
 		<UI>
 			{#snippet gameName()}
-				<UiGameName name="SCATTER GAME" />
+				<UiGameName name="ELEMENTAL FURY" />
 			{/snippet}
 			{#snippet logo()}
 				<Text
 					anchor={{ x: 1, y: 0 }}
-					text="ADD YOUR LOGO"
+					text="ELEMENTAL FURY"
 					style={{
 						fontFamily: 'proxima-nova',
 						fontSize: REM * 1.5,
-						fontWeight: '600',
+						fontWeight: '800',
+						letterSpacing: 2,
 						lineHeight: REM * 2,
 						fill: 0xffffff,
 					}}
@@ -105,13 +108,12 @@
 		</UI>
 		<Win />
 		<FreeSpinIntro />
+		<RiftReveal />
 		{#if ['desktop', 'landscape'].includes(context.stateLayoutDerived.layoutType())}
 			<FreeSpinCounter />
 		{/if}
 		<FreeSpinOutro />
 		<Transition />
-
-		<I18nTest />
 	{/if}
 </App>
 

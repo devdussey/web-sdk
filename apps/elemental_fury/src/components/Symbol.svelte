@@ -33,7 +33,7 @@
 		{symbolBackgroundInfo}
 		x={props.x}
 		y={props.y}
-		showWinFrame={props.state === 'win' && !['S', 'M'].includes(props.rawSymbol.name)}
+		showWinFrame={props.state === 'win' && !['S', 'M'].includes(props.rawSymbol?.name ?? '')}
 		listener={{
 			complete: props.oncomplete,
 			event: (_, event) => {

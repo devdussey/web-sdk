@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Teal / Mint Wind Bloom Filter -->
+    <filter id="windGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Abyssal Slate/Teal Backdrop -->
+    <radialGradient id="l2Bg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#082424" />
+      <stop offset="60%" stop-color="#031212" />
+      <stop offset="100%" stop-color="#010606" />
+    </radialGradient>
+
+    <!-- Weathered Slate Stone Tablet -->
+    <linearGradient id="l2Slate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D4A4A" />
+      <stop offset="50%" stop-color="#182C2C" />
+      <stop offset="100%" stop-color="#0A1414" />
+    </linearGradient>
+
+    <!-- Gale Force Wind Currents Gradient (Restored Teal/Mint) -->
+    <linearGradient id="tealWindGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="25%" stop-color="#5EEAD4" />
+      <stop offset="65%" stop-color="#0D9488" />
+      <stop offset="100%" stop-color="#042F2E" />
+    </linearGradient>
+  </defs>
+
+  <!-- Tile Canvas Base -->
+  <rect width="512" height="512" fill="url(#l2Bg)" rx="32" />
+  <rect x="24" y="24" width="464" height="464" rx="20" fill="none" stroke="#134E4A" stroke-width="3.5" stroke-dasharray="10, 6" />
+
+  <!-- CIRCULAR WEATHERED SLATE TABLET -->
+  <circle cx="256" cy="256" r="190" fill="url(#l2Slate)" stroke="#000000" stroke-width="9" />
+  <circle cx="256" cy="256" r="165" fill="#041212" stroke="#082424" stroke-width="4" />
+
+  <!-- ENGRAVED WIND GUSTS & CYCLONE EDDIES -->
+  
+  <!-- 1. Top Sweeping Wind Gust with Spiral Loop -->
+  <path d="M 110 180 C 170 130 260 130 330 160 C 370 180 395 220 375 250 C 350 275 305 255 315 220 C 325 190 295 175 260 175 C 195 175 140 205 110 180 Z" 
+        fill="url(#tealWindGrad)" stroke="#000000" stroke-width="5" stroke-linejoin="round" filter="url(#windGlow)" />
+
+  <!-- 2. Main Center Howling Gale (Double Air Vortex) -->
+  <path d="M 70 260 C 150 200 270 200 360 240 C 420 270 440 330 395 365 C 350 395 295 360 325 310 C 345 280 310 265 260 265 C 180 265 115 310 70 260 Z" 
+        fill="url(#tealWindGrad)" stroke="#000000" stroke-width="6" stroke-linejoin="round" filter="url(#windGlow)" />
+
+  <!-- 3. Bottom Skimming Wind Trail -->
+  <path d="M 140 340 C 190 310 250 310 300 330 C 330 345 320 370 290 370 C 255 370 215 345 175 365 C 155 375 130 360 140 340 Z" 
+        fill="url(#tealWindGrad)" stroke="#000000" stroke-width="4" stroke-linejoin="round" filter="url(#windGlow)" />
+
+  <!-- 4. Aerodynamic Air Blades / Speed Slits (White-Hot Air Core) -->
+  <path d="M 125 250 C 195 215 280 215 345 245" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" filter="url(#windGlow)" />
+  <path d="M 155 175 C 210 150 275 150 320 175" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" filter="url(#windGlow)" />
+  <path d="M 180 335 C 225 320 265 320 290 335" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" filter="url(#windGlow)" />
+
+  <!-- Chisel Hatching Marks on Slate -->
+  <g stroke="#000000" stroke-width="3.5" stroke-linecap="round">
+    <line x1="256" y1="80" x2="256" y2="65" />
+    <line x1="420" y1="210" x2="435" y2="200" />
+    <line x1="90" y1="320" x2="75" y2="330" />
+    <line x1="256" y1="432" x2="256" y2="447" />
+  </g>
+
+  <!-- Floating Gale Wisps & Mint Air Sparks -->
+  <circle cx="150" cy="125" r="3" fill="#5EEAD4" filter="url(#windGlow)" />
+  <circle cx="410" cy="175" r="3.5" fill="#5EEAD4" filter="url(#windGlow)" />
+  <circle cx="415" cy="325" r="3" fill="#5EEAD4" filter="url(#windGlow)" />
+  <circle cx="95" cy="205" r="2.5" fill="#FFFFFF" filter="url(#windGlow)" />
+  <circle cx="256" cy="460" r="3" fill="#2DD4BF" filter="url(#windGlow)" />
+</svg>

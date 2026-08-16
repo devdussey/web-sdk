@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Wind Gale Glow Filter -->
+    <filter id="wispGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="intenseWisp" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="b1" />
+      <feGaussianBlur stdDeviation="12" result="b2" />
+      <feMerge>
+        <feMergeNode in="b2" />
+        <feMergeNode in="b1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Gale Void Backdrop -->
+    <radialGradient id="wispVoid" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#0F2E2B" />
+      <stop offset="55%" stop-color="#061A18" />
+      <stop offset="100%" stop-color="#020807" />
+    </radialGradient>
+
+    <!-- Outer Bezel Slate Gradient -->
+    <linearGradient id="coinBezel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="35%" stop-color="#1E293B" />
+      <stop offset="70%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+
+    <!-- Golden Gale Runic Ring Gradient -->
+    <linearGradient id="goldGaleRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFBEB" />
+      <stop offset="25%" stop-color="#FCD34D" />
+      <stop offset="60%" stop-color="#D97706" />
+      <stop offset="100%" stop-color="#78350F" />
+    </linearGradient>
+
+    <!-- Ethereal Wind Stream Gradient -->
+    <linearGradient id="windStream" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0D9488" />
+      <stop offset="35%" stop-color="#14B8A6" />
+      <stop offset="70%" stop-color="#5EEAD4" />
+      <stop offset="90%" stop-color="#CCFBF1" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+
+    <linearGradient id="mintGale" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#5EEAD4" />
+      <stop offset="80%" stop-color="#0F766E" />
+      <stop offset="100%" stop-color="#042F2E" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Abyssal Base Disc -->
+  <circle cx="256" cy="256" r="236" fill="url(#wispVoid)" stroke="#042F2E" stroke-width="4" />
+
+  <!-- Outer Heavy Bezel with Comic Notches -->
+  <circle cx="256" cy="256" r="222" fill="url(#coinBezel)" stroke="#090D16" stroke-width="6" />
+  
+  <!-- Golden Runic Ring -->
+  <circle cx="256" cy="256" r="198" fill="none" stroke="url(#goldGaleRim)" stroke-width="9" filter="url(#wispGlow)" />
+  <circle cx="256" cy="256" r="186" fill="#041E1C" stroke="#0D9488" stroke-width="3" />
+
+  <!-- Outer Rotating Gale Blades (8 Directional Vanes) -->
+  <g stroke="#020B0A" stroke-width="3.5" filter="url(#wispGlow)">
+    <!-- Vane 1 -->
+    <path d="M 256 68 C 290 85 320 115 330 150 C 310 135 285 125 256 125 Z" fill="url(#windStream)" />
+    <!-- Vane 2 -->
+    <path d="M 444 256 C 427 290 397 320 362 330 C 377 310 387 285 387 256 Z" fill="url(#windStream)" />
+    <!-- Vane 3 -->
+    <path d="M 256 444 C 222 427 192 397 182 362 C 202 377 227 387 256 387 Z" fill="url(#windStream)" />
+    <!-- Vane 4 -->
+    <path d="M 68 256 C 85 222 115 192 150 182 C 135 202 125 227 125 256 Z" fill="url(#windStream)" />
+    <!-- Diagonals -->
+    <path d="M 389 123 C 395 160 380 195 350 220 C 355 190 345 165 325 145 Z" fill="url(#mintGale)" />
+    <path d="M 389 389 C 352 395 317 380 292 350 C 322 355 347 345 367 325 Z" fill="url(#mintGale)" />
+    <path d="M 123 389 C 117 352 132 317 162 292 C 157 322 167 347 187 367 Z" fill="url(#mintGale)" />
+    <path d="M 123 123 C 160 117 195 132 220 162 C 190 157 165 167 145 187 Z" fill="url(#mintGale)" />
+  </g>
+
+  <!-- Inner Vortex Chasm -->
+  <circle cx="256" cy="256" r="120" fill="#021413" stroke="#14B8A6" stroke-width="4" />
+
+  <!-- Kinetic Swirling Wind Wisp Core -->
+  <g filter="url(#intenseWisp)">
+    <!-- Swirl Tail 1 -->
+    <path d="M 256 160 C 310 160 350 200 350 256 C 350 305 310 345 260 345 C 215 345 180 310 180 268 C 180 230 210 200 248 200 C 278 200 300 222 300 250 C 300 272 282 290 260 290 C 244 290 230 276 230 260 C 230 248 240 238 252 238" 
+          fill="none" stroke="url(#windStream)" stroke-width="12" stroke-linecap="round" />
+
+    <!-- Swirl Tail 2 (Counter spiral) -->
+    <path d="M 256 352 C 202 352 162 312 162 256 C 162 207 202 167 252 167 C 297 167 332 202 332 244 C 332 282 302 312 264 312" 
+          fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" opacity="0.85" />
+
+    <!-- Radiant Central Wisp Eye -->
+    <circle cx="256" cy="256" r="16" fill="#FFFFFF" />
+    <circle cx="256" cy="256" r="28" fill="#5EEAD4" opacity="0.6" />
+  </g>
+
+  <!-- Dynamic Sparkles / Energy Pips -->
+  <g fill="#FFFFFF" filter="url(#intenseWisp)">
+    <circle cx="256" cy="78" r="4.5" />
+    <circle cx="434" cy="256" r="4.5" />
+    <circle cx="256" cy="434" r="4.5" />
+    <circle cx="78" cy="256" r="4.5" />
+    <polygon points="256,236 262,256 256,276 250,256" fill="#FFFFFF" />
+    <polygon points="236,256 256,262 276,256 256,250" fill="#FFFFFF" />
+  </g>
+</svg>

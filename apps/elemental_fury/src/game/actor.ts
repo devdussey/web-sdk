@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import { stateBet } from 'state-shared';
+import { stateBet, stateUrlDerived } from 'state-shared';
 import { checkIsMultipleRevealEvents } from 'utils-book';
 import { createPrimaryMachines, createIntermediateMachines, createGameActor } from 'utils-xstate';
 
@@ -8,6 +8,7 @@ import type { Bet } from './typesBookEvent';
 import { stateXstateDerived } from './stateXstate';
 import { playBet, convertTorResumableBet } from './utils';
 import { stateGameDerived } from './stateGame.svelte';
+import sampleBooks from '../stories/data/base_books';
 
 const primaryMachines = createPrimaryMachines<Bet>({
 	onResumeGameActive: (betToResume) => convertTorResumableBet(betToResume),
@@ -25,7 +26,20 @@ const primaryMachines = createPrimaryMachines<Bet>({
 		await stateGameDerived.enhancedBoard.preSpin({});
 	},
 	onNewGameError: () => stateGameDerived.enhancedBoard.settle(),
-	onPlayGame: async (bet) => await playBet(bet),
+	onPlayGame: async (bet) => {
+        if (!stateUrlDerived.rgsUrl() || !bet?.state) {
+            const randomIndex = Math.floor(Math.random() * sampleBooks.length);
+            const mockData = sampleBooks[randomIndex];
+            const mockBet = {
+                mode: 'base',
+                amount: stateBet.betAmount,
+                state: mockData.events,
+            };
+            await playBet(mockBet as any);
+            return;
+        }
+        await playBet(bet);
+    },
 	checkIsBonusGame: (bet) => checkIsMultipleRevealEvents({ bookEvents: bet.state }),
 });
 

@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Gale Bloom Filter -->
+    <filter id="galeBloomFS" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Hurricane Eye Abyss -->
+    <radialGradient id="eyeAbyss" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#021413" />
+      <stop offset="40%" stop-color="#041C1A" />
+      <stop offset="70%" stop-color="#061217" />
+      <stop offset="100%" stop-color="#010608" />
+    </radialGradient>
+
+    <!-- Outer Storm Clouds -->
+    <radialGradient id="outerVortexClouds" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#0D9488" stop-opacity="0" />
+      <stop offset="50%" stop-color="#115E59" stop-opacity="0.3" />
+      <stop offset="80%" stop-color="#042F2E" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#021413" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Swirling Wind Blade Gradients -->
+    <linearGradient id="vortexGale1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.9" />
+      <stop offset="30%" stop-color="#5EEAD4" stop-opacity="0.7" />
+      <stop offset="70%" stop-color="#0D9488" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#042F2E" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="vortexGale2" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#CCFBF1" stop-opacity="0.8" />
+      <stop offset="40%" stop-color="#14B8A6" stop-opacity="0.5" />
+      <stop offset="80%" stop-color="#0F766E" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#021C1A" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Floating Slate Monolith Gradient -->
+    <linearGradient id="floatingSlate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="50%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0A0F1D" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Eye Abyss Base -->
+  <rect width="1920" height="1080" fill="url(#eyeAbyss)" />
+
+  <!-- Massive Outer Hurricane Cloud Wall Layer -->
+  <g opacity="0.85">
+    <!-- Top-Left Cloud Swirls -->
+    <path d="M -100 -100 C 400 -50 700 200 650 500 C 500 300 200 100 -100 -100 Z" fill="#042F2E" opacity="0.6" />
+    <!-- Top-Right Cloud Swirls -->
+    <path d="M 2020 -100 C 1520 -50 1220 200 1270 500 C 1420 300 1720 100 2020 -100 Z" fill="#042F2E" opacity="0.6" />
+    <!-- Bottom-Right Cloud Swirls -->
+    <path d="M 2020 1180 C 1520 1130 1220 880 1270 580 C 1420 780 1720 980 2020 1180 Z" fill="#021C1A" opacity="0.7" />
+    <!-- Bottom-Left Cloud Swirls -->
+    <path d="M -100 1180 C 400 1130 700 880 650 580 C 500 780 200 980 -100 1180 Z" fill="#021C1A" opacity="0.7" />
+  </g>
+
+  <!-- Radial Vortex Shroud -->
+  <rect width="1920" height="1080" fill="url(#outerVortexClouds)" />
+
+  <!-- Coiling White/Teal Gale Blade Spirals -->
+  <g filter="url(#galeBloomFS)">
+    <!-- Major Spiral Arm 1 (Top Left to Center) -->
+    <path d="M -50 200 C 350 100 800 250 920 480 C 850 420 500 320 100 380 Z" fill="url(#vortexGale1)" />
+    <!-- Major Spiral Arm 2 (Top Right to Center) -->
+    <path d="M 1970 200 C 1570 100 1120 250 1000 480 C 1070 420 1420 320 1820 380 Z" fill="url(#vortexGale2)" />
+    <!-- Major Spiral Arm 3 (Bottom Right to Center) -->
+    <path d="M 1970 880 C 1570 980 1120 830 1000 600 C 1070 660 1420 760 1820 700 Z" fill="url(#vortexGale1)" />
+    <!-- Major Spiral Arm 4 (Bottom Left to Center) -->
+    <path d="M -50 880 C 350 980 800 830 920 600 C 850 660 500 760 100 700 Z" fill="url(#vortexGale2)" />
+    
+    <!-- High-Speed Tight Inner Cyclone Rings -->
+    <path d="M 760 450 C 860 380 1060 380 1160 450 C 1220 540 1160 640 1060 690 C 960 720 820 680 760 600 C 720 520 760 450 760 450 Z" 
+          fill="none" stroke="url(#vortexGale1)" stroke-width="14" stroke-dasharray="120 40 80 50" opacity="0.75" />
+    <path d="M 820 480 C 900 420 1020 420 1100 480 C 1150 540 1100 620 1020 650 C 940 670 850 640 820 580 Z" 
+          fill="none" stroke="#FFFFFF" stroke-width="6" stroke-dasharray="80 30" opacity="0.8" />
+  </g>
+
+  <!-- Floating Shattered Slate Monoliths & Debris in the Outer Vortex -->
+  <g stroke="#03080A" stroke-width="2.5">
+    <!-- Top-Left Floating Islands -->
+    <polygon points="180,140 260,110 290,160 220,200" fill="url(#floatingSlate)" />
+    <polygon points="120,280 160,260 180,290 130,310" fill="url(#floatingSlate)" />
+    <!-- Top-Right Floating Islands -->
+    <polygon points="1740,140 1660,110 1630,160 1700,200" fill="url(#floatingSlate)" />
+    <polygon points="1800,280 1760,260 1740,290 1790,310" fill="url(#floatingSlate)" />
+    <!-- Bottom-Left Floating Islands -->
+    <polygon points="180,940 260,970 290,920 220,880" fill="url(#floatingSlate)" />
+    <polygon points="320,820 370,850 350,890 290,870" fill="url(#floatingSlate)" />
+    <!-- Bottom-Right Floating Islands -->
+    <polygon points="1740,940 1660,970 1630,920 1700,880" fill="url(#floatingSlate)" />
+    <polygon points="1600,820 1550,850 1570,890 1630,870" fill="url(#floatingSlate)" />
+  </g>
+
+  <!-- Whirling Wind Dust / High-Speed Particles -->
+  <g fill="#5EEAD4" filter="url(#galeBloomFS)" opacity="0.7">
+    <circle cx="340" cy="220" r="3.5" />
+    <circle cx="560" cy="180" r="2.5" />
+    <circle cx="1380" cy="220" r="3.5" />
+    <circle cx="1580" cy="180" r="2.5" />
+    <circle cx="420" cy="850" r="3" />
+    <circle cx="1500" cy="850" r="3" />
+    <circle cx="700" cy="380" r="4" fill="#FFFFFF" />
+    <circle cx="1220" cy="700" r="4" fill="#FFFFFF" />
+  </g>
+
+  <!-- Clear Calm Cyclone Eye Center (Ensuring High Contrast for 6x5 Grid) -->
+  <radialGradient id="clearCenterDim" cx="50%" cy="50%" r="45%">
+    <stop offset="0%" stop-color="#010608" stop-opacity="0.75" />
+    <stop offset="70%" stop-color="#010608" stop-opacity="0.4" />
+    <stop offset="100%" stop-color="#010608" stop-opacity="0" />
+  </radialGradient>
+  <rect x="360" y="110" width="1200" height="860" fill="url(#clearCenterDim)" />
+</svg>

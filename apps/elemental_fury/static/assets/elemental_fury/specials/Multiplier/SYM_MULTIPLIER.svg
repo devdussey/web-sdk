@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Prismatic Multiplier Bloom Filter -->
+    <filter id="crystalBloom" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Void Backdrop -->
+    <radialGradient id="multVoid" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#220538" />
+      <stop offset="55%" stop-color="#0E0217" />
+      <stop offset="100%" stop-color="#030005" />
+    </radialGradient>
+
+    <!-- Obsidian Containment Claws -->
+    <linearGradient id="obsidianClaw" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#475569" />
+      <stop offset="50%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#090D16" />
+    </linearGradient>
+
+    <!-- Prismatic Crystal Facet - Lit (Top & Right) -->
+    <linearGradient id="facetBright" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="25%" stop-color="#F472B6" />
+      <stop offset="60%" stop-color="#C026D3" />
+      <stop offset="100%" stop-color="#701A75" />
+    </linearGradient>
+
+    <!-- Prismatic Crystal Facet - Shadow (Bottom & Left) -->
+    <linearGradient id="facetShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A21CAF" />
+      <stop offset="50%" stop-color="#4A044E" />
+      <stop offset="100%" stop-color="#1F0122" />
+    </linearGradient>
+
+    <!-- Cyan Energy Bleed Gradient -->
+    <linearGradient id="cyanArc" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="50%" stop-color="#E879F9" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+
+    <!-- Recessed Display Well Depth -->
+    <radialGradient id="displayWell" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#020005" />
+      <stop offset="75%" stop-color="#0A0212" />
+      <stop offset="100%" stop-color="#240438" />
+    </radialGradient>
+  </defs>
+
+  <!-- Tile Canvas Base -->
+  <rect width="512" height="512" fill="url(#multVoid)" rx="32" />
+  <rect x="24" y="24" width="464" height="464" rx="20" fill="none" stroke="#581C87" stroke-width="3.5" stroke-dasharray="12, 8" />
+
+  <!-- ==========================================
+       1. FLOATING ORBITAL SHARDS (Kinetic Detached Crystals)
+       ========================================== -->
+  <!-- Top Flank Shards -->
+  <polygon points="120,40 145,95 105,85" fill="url(#facetBright)" stroke="#000000" stroke-width="4" stroke-linejoin="round" />
+  <polygon points="392,40 407,85 367,95" fill="url(#facetBright)" stroke="#000000" stroke-width="4" stroke-linejoin="round" />
+  
+  <!-- Outer Side Shards -->
+  <polygon points="40,240 90,215 80,265" fill="url(#facetShadow)" stroke="#000000" stroke-width="4" stroke-linejoin="round" />
+  <polygon points="472,240 432,265 422,215" fill="url(#facetBright)" stroke="#000000" stroke-width="4" stroke-linejoin="round" />
+
+  <!-- Bottom Flank Shards -->
+  <polygon points="110,450 100,395 140,405" fill="url(#facetShadow)" stroke="#000000" stroke-width="4" stroke-linejoin="round" />
+  <polygon points="402,450 372,405 412,395" fill="url(#facetShadow)" stroke="#000000" stroke-width="4" stroke-linejoin="round" />
+
+  <!-- ==========================================
+       2. REFINED GEOMETRIC CRYSTAL BODY
+       ========================================== -->
+  <!-- Background Crystal Drop Silhouette -->
+  <polygon points="256,35 445,145 445,367 256,477 67,367 67,145" 
+           fill="#000000" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+
+  <!-- Top-Half Crystalline Facets -->
+  <polygon points="256,45 435,150 256,150" fill="url(#facetBright)" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+  <polygon points="256,45 77,150 256,150" fill="url(#facetShadow)" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+
+  <!-- Side Facet Wings -->
+  <polygon points="77,150 135,256 77,362" fill="url(#facetShadow)" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+  <polygon points="435,150 435,362 377,256" fill="url(#facetBright)" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+
+  <!-- Bottom-Half Crystalline Facets -->
+  <polygon points="77,362 256,362 256,467" fill="url(#facetShadow)" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+  <polygon points="435,362 256,467 256,362" fill="url(#facetBright)" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+
+  <!-- ==========================================
+       3. OBSIDIAN CONTAINMENT CLAW BRACKETS (4 Cardinal Clamps)
+       ========================================== -->
+  <!-- Top Claw Bracket -->
+  <polygon points="230,25 282,25 272,90 256,105 240,90" fill="url(#obsidianClaw)" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+  <circle cx="256" cy="55" r="5" fill="#E879F9" filter="url(#crystalBloom)" />
+
+  <!-- Bottom Claw Bracket -->
+  <polygon points="230,487 282,487 272,422 256,407 240,422" fill="url(#obsidianClaw)" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+  <circle cx="256" cy="457" r="5" fill="#E879F9" filter="url(#crystalBloom)" />
+
+  <!-- Left Claw Bracket -->
+  <polygon points="45,230 45,282 110,272 125,256 110,240" fill="url(#obsidianClaw)" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+  <circle cx="75" cy="256" r="5" fill="#38BDF8" filter="url(#crystalBloom)" />
+
+  <!-- Right Claw Bracket -->
+  <polygon points="467,230 467,282 402,272 387,256 402,240" fill="url(#obsidianClaw)" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+  <circle cx="437" cy="256" r="5" fill="#38BDF8" filter="url(#crystalBloom)" />
+
+  <!-- ==========================================
+       4. HIGH-CONTRAST RECESSED DISPLAY WELL (Dynamic Text Window)
+       ========================================== -->
+  <!-- Deep Dark Hollow Chamber -->
+  <polygon points="256,145 377,215 377,297 256,367 135,297 135,215" 
+           fill="url(#displayWell)" stroke="#000000" stroke-width="9" stroke-linejoin="round" />
+
+  <!-- Inner Neon Glow Conduit Rim -->
+  <polygon points="256,158 365,222 365,290 256,354 147,290 147,222" 
+           fill="none" stroke="url(#cyanArc)" stroke-width="3.5" stroke-dasharray="14, 8" filter="url(#crystalBloom)" />
+
+  <!-- ==========================================
+       5. ARCING ENERGY FILAMENTS (Static Discharges)
+       ========================================== -->
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="miter" filter="url(#crystalBloom)">
+    <!-- Top-Right Energy Arc -->
+    <polyline points="280,70 330,85 320,120 375,145" stroke-width="3" />
+    <!-- Bottom-Left Energy Arc -->
+    <polyline points="135,367 190,390 180,425 235,445" stroke-width="3" stroke="#38BDF8" />
+  </g>
+
+  <!-- ==========================================
+       6. RUNTIME PREVIEW TEXT ("100x")
+       ========================================== -->
+  <!-- Heavy Inked Shadow for Canvas Legibility -->
+  <text x="256" y="285" font-family="'Impact', 'Arial Black', sans-serif" font-size="82" font-weight="900" 
+        letter-spacing="1" fill="#000000" stroke="#000000" stroke-width="12" stroke-linejoin="miter" text-anchor="middle">100x</text>
+
+  <!-- Crisp Core Text -->
+  <text x="256" y="285" font-family="'Impact', 'Arial Black', sans-serif" font-size="82" font-weight="900" 
+        letter-spacing="1" fill="#FFFFFF" stroke="#F472B6" stroke-width="2.5" text-anchor="middle" filter="url(#crystalBloom)">100x</text>
+
+  <!-- High-Facet White Reflection Lines -->
+  <line x1="256" y1="45" x2="435" y2="150" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" filter="url(#crystalBloom)" />
+  <line x1="435" y1="150" x2="377" y2="256" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" filter="url(#crystalBloom)" />
+
+  <!-- Floating Spark Particles -->
+  <circle cx="210" cy="110" r="3.5" fill="#FFFFFF" filter="url(#crystalBloom)" />
+  <circle cx="315" cy="400" r="3" fill="#38BDF8" filter="url(#crystalBloom)" />
+  <circle cx="395" cy="300" r="3.5" fill="#E879F9" filter="url(#crystalBloom)" />
+  <circle cx="115" cy="200" r="3" fill="#E879F9" filter="url(#crystalBloom)" />
+</svg>

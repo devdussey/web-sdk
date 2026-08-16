@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Frost Cryo Bloom Filter -->
+    <filter id="iceGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="b1" />
+      <feGaussianBlur stdDeviation="15" result="b2" />
+      <feMerge>
+        <feMergeNode in="b2" />
+        <feMergeNode in="b1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="frostIntense" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="b1" />
+      <feGaussianBlur stdDeviation="8" result="b2" />
+      <feMerge>
+        <feMergeNode in="b2" />
+        <feMergeNode in="b1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Glacier Abyss -->
+    <radialGradient id="iceAbyssBg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#082F49" />
+      <stop offset="55%" stop-color="#031726" />
+      <stop offset="100%" stop-color="#01060A" />
+    </radialGradient>
+
+    <!-- Outer Frost Frame Gradient -->
+    <linearGradient id="permafrostBezel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7DD3FC" />
+      <stop offset="35%" stop-color="#0284C7" />
+      <stop offset="70%" stop-color="#0369A1" />
+      <stop offset="100%" stop-color="#0C4A6E" />
+    </linearGradient>
+
+    <!-- Crystal Shard Facet - Lit Top -->
+    <linearGradient id="crystalFacetLit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#BAE6FD" />
+      <stop offset="70%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+
+    <!-- Crystal Shard Facet - Shadow Bottom -->
+    <linearGradient id="crystalFacetDark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="50%" stop-color="#0369A1" />
+      <stop offset="100%" stop-color="#082F49" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Glacier Abyss Base -->
+  <rect x="24" y="24" width="464" height="464" rx="48" fill="url(#iceAbyssBg)" stroke="#082F49" stroke-width="4" />
+
+  <!-- Outer Hexagonal Frosted Tablet Frame -->
+  <polygon points="256,38 462,145 462,367 256,474 50,367 50,145" 
+           fill="#041C2E" stroke="url(#permafrostBezel)" stroke-width="7" />
+
+  <!-- Inner Ice Chasm Backing -->
+  <polygon points="256,60 440,155 440,357 256,452 72,357 72,155" 
+           fill="#02111C" stroke="#0284C7" stroke-width="3" />
+
+  <!-- Orbiting Frost Crystal Shards (4 Perimeter Shards) -->
+  <g stroke="#03253B" stroke-width="2.5" filter="url(#iceGlow)">
+    <polygon points="256,48 276,105 256,125 236,105" fill="url(#crystalFacetLit)" />
+    <polygon points="450,256 395,276 375,256 395,236" fill="url(#crystalFacetLit)" />
+    <polygon points="256,464 236,407 256,387 276,407" fill="url(#crystalFacetDark)" />
+    <polygon points="62,256 117,236 137,256 117,276" fill="url(#crystalFacetDark)" />
+  </g>
+
+  <!-- Colossal Central 3D Glacial Ice Shard -->
+  <g filter="url(#frostIntense)">
+    <!-- 3D Shadow under the main shard -->
+    <polygon points="256,70 380,210 330,440 256,410 182,440 132,210" fill="#01080E" transform="translate(6, 8)" />
+
+    <!-- Left Upper Facet -->
+    <polygon points="256,70 132,210 256,270" fill="url(#crystalFacetLit)" stroke="#FFFFFF" stroke-width="1.5" />
+    <!-- Right Upper Facet -->
+    <polygon points="256,70 380,210 256,270" fill="url(#crystalFacetLit)" stroke="#FFFFFF" stroke-width="1.5" />
+    
+    <!-- Left Lower Facet -->
+    <polygon points="132,210 182,440 256,270" fill="url(#crystalFacetDark)" stroke="#38BDF8" stroke-width="1.5" />
+    <!-- Right Lower Facet -->
+    <polygon points="380,210 330,440 256,270" fill="url(#crystalFacetDark)" stroke="#38BDF8" stroke-width="1.5" />
+    <!-- Center Keel Facet -->
+    <polygon points="182,440 256,410 330,440 256,270" fill="#0284C7" stroke="#BAE6FD" stroke-width="2" />
+  </g>
+
+  <!-- Glowing Internal Runic Snowflake Sigil on the Crystal -->
+  <g stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" filter="url(#frostIntense)" opacity="0.95">
+    <line x1="256" y1="180" x2="256" y2="360" />
+    <line x1="178" y1="225" x2="334" y2="315" />
+    <line x1="178" y1="315" x2="334" y2="225" />
+    <!-- Branch Chevrons -->
+    <path d="M 242 205 L 256 190 L 270 205" fill="none" />
+    <path d="M 242 335 L 256 350 L 270 335" fill="none" />
+    <path d="M 195 240 L 185 225 L 205 225" fill="none" />
+    <path d="M 317 290 L 327 305 L 307 305" fill="none" />
+  </g>
+
+  <!-- Core Radiant Cryo Node -->
+  <circle cx="256" cy="270" r="10" fill="#FFFFFF" filter="url(#frostIntense)" />
+  <circle cx="256" cy="270" r="22" fill="#38BDF8" opacity="0.6" filter="url(#iceGlow)" />
+</svg>

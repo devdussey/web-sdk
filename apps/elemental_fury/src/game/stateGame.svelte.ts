@@ -5,7 +5,7 @@ import { stateBet } from 'state-shared';
 import { createEnhanceBoard, createReelForCascading } from 'utils-slots';
 import { createGetWinLevelDataByWinLevelAlias } from 'utils-shared/winLevel';
 
-import type { GameType, RawSymbol, SymbolState } from './types';
+import type { GameType, RawSymbol, SymbolState, ElementType } from './types';
 import { stateLayoutDerived } from './stateLayout';
 import { winLevelMap } from './winLevelMap';
 import { eventEmitter } from './eventEmitter';
@@ -20,22 +20,23 @@ import {
 	SCATTER_LAND_SOUND_MAP,
 } from './constants';
 
-const onSymbolLand = ({ rawSymbol }: { rawSymbol: RawSymbol }) => {
-	if (rawSymbol.name === 'S') {
-		eventEmitter.broadcast({ type: 'soundScatterCounterIncrease' });
-		eventEmitter.broadcast({
-			type: 'soundOnce',
-			name: SCATTER_LAND_SOUND_MAP[scatterLandIndex()],
-		});
-	}
+const onSymbolLand = ({ rawSymbol }: { rawSymbol?: RawSymbol }) => {
+    if (!rawSymbol || !rawSymbol.name) return;
+    if (rawSymbol.name === 'S') {
+        eventEmitter.broadcast({ type: 'soundScatterCounterIncrease' });
+        eventEmitter.broadcast({
+            type: 'soundOnce',
+            name: SCATTER_LAND_SOUND_MAP[scatterLandIndex()],
+        });
+    }
 
-	if (rawSymbol.name === 'M') {
-		eventEmitter.broadcast({
-			type: 'soundOnce',
-			name: 'sfx_multiplier_landing',
-		});
-	}
-};
+    if (rawSymbol.name === 'M') {
+        eventEmitter.broadcast({
+            type: 'soundOnce',
+            name: 'sfx_multiplier_landing',
+            });
+        }
+    };
 
 const board = _.range(BOARD_DIMENSIONS.x).map((reelIndex) => {
 	const reel = createReelForCascading({
@@ -82,6 +83,7 @@ export type MultiplierSymbol = {
 export const stateGame = $state({
 	board,
 	gameType: 'basegame' as GameType,
+	currentElement: null as ElementType | null,
 	tumbleBoardAdding: [] as TumbleSymbol[][],
 	tumbleBoardBase: [] as TumbleSymbol[][],
 	multiplierBoard: [] as (MultiplierSymbol | undefined)[][],
@@ -96,7 +98,7 @@ export const stateGame = $state({
 
 const boardLayout = () => ({
 	x: stateLayoutDerived.mainLayout().width * 0.5,
-	y: stateLayoutDerived.mainLayout().height * 0.5,
+	y: stateLayoutDerived.mainLayout().height * 0.46,
 	anchor: { x: 0.5, y: 0.5 },
 	pivot: { x: BOARD_SIZES.width / 2, y: BOARD_SIZES.height / 2 },
 	...BOARD_SIZES,

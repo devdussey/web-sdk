@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Cataclysmic Rift Glow Filter -->
+    <filter id="riftClashGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Rift Void Backdrop -->
+    <radialGradient id="abyssalRift" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#18042B" />
+      <stop offset="55%" stop-color="#090114" />
+      <stop offset="100%" stop-color="#020005" />
+    </radialGradient>
+
+    <!-- 1. Purple Lightning Gradient -->
+    <linearGradient id="purpleBoltGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#E879F9" />
+      <stop offset="70%" stop-color="#9333EA" />
+      <stop offset="100%" stop-color="#3B0764" />
+    </linearGradient>
+
+    <!-- 2. Hot Kindling & Magma Gradient -->
+    <linearGradient id="kindlingFire" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#450A0A" />
+      <stop offset="25%" stop-color="#DC2626" />
+      <stop offset="60%" stop-color="#EA580C" />
+      <stop offset="85%" stop-color="#FACC15" />
+      <stop offset="100%" stop-color="#FFFBEB" />
+    </linearGradient>
+
+    <!-- 3. Whiteout Blizzard Frost Gradient -->
+    <linearGradient id="blizzardIce" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#E0F2FE" />
+      <stop offset="70%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </linearGradient>
+
+    <!-- 4. Central Singularity Accretion Ring -->
+    <radialGradient id="singularityCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000" />
+      <stop offset="65%" stop-color="#05010B" />
+      <stop offset="85%" stop-color="#A855F7" stop-opacity="0.8" />
+      <stop offset="95%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </radialGradient>
+  </defs>
+
+  <!-- Tile Canvas Base -->
+  <rect width="512" height="512" fill="url(#abyssalRift)" rx="32" />
+  <rect x="20" y="20" width="472" height="472" rx="24" fill="none" stroke="#3B0764" stroke-width="3.5" stroke-dasharray="12, 8" />
+
+  <!-- ==========================================
+       ZONE 1: HOT KINDLING & SMOLDERING GROUND (Bottom-Right)
+       ========================================== -->
+  <!-- Charred Basalt Crust with Internal Heat -->
+  <path d="M 256 256 L 390 180 C 470 240 500 350 460 440 C 380 490 270 480 200 420 Z" 
+        fill="url(#kindlingFire)" opacity="0.85" filter="url(#riftClashGlow)" />
+  
+  <!-- Smoldering Charcoal Slabs & Cracks -->
+  <polygon points="340,320 440,300 470,390 380,430" fill="#1C0A0A" stroke="#000000" stroke-width="5" stroke-linejoin="round" />
+  <polygon points="260,370 330,350 350,450 250,440" fill="#1C0A0A" stroke="#000000" stroke-width="5" stroke-linejoin="round" />
+  <!-- Magma Bleed Fractures in Kindling -->
+  <path d="M 340 320 L 380 370 L 440 380 M 350 400 L 410 430" fill="none" stroke="#FDE047" stroke-width="3" filter="url(#riftClashGlow)" />
+
+  <!-- ==========================================
+       ZONE 2: WHITEOUT BLIZZARD (Top-Left Clashing into Heat)
+       ========================================== -->
+  <!-- Violent Frost Mist & Frozen Squall Mass -->
+  <path d="M 256 256 L 110 320 C 30 250 20 130 80 50 C 170 10 280 40 340 110 Z" 
+        fill="url(#blizzardIce)" opacity="0.8" filter="url(#riftClashGlow)" />
+
+  <!-- Razor Glacial Ice Spires Shivering Through the Storm -->
+  <polygon points="120,160 30,80 90,60 160,130" fill="url(#blizzardIce)" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+  <polygon points="180,110 130,20 180,10 220,90" fill="#FFFFFF" stroke="#000000" stroke-width="5" stroke-linejoin="round" />
+  <polygon points="60,230 10,180 40,150 100,200" fill="url(#blizzardIce)" stroke="#000000" stroke-width="5" stroke-linejoin="round" />
+
+  <!-- ==========================================
+       ZONE 3: PURPLE LIGHTNING STRIKES (Surging Across the Rift)
+       ========================================== -->
+  <g fill="none" stroke="url(#purpleBoltGrad)" stroke-linecap="square" stroke-linejoin="miter" filter="url(#riftClashGlow)">
+    <!-- Top-Right to Center Major Bolt -->
+    <polyline points="430,40 370,110 395,125 330,190 350,205 270,250" stroke-width="7" />
+    <polyline points="370,110 320,115 305,150" stroke-width="3.5" stroke="#FFFFFF" />
+    
+    <!-- Left-to-Center Arc Cutting Through Blizzard -->
+    <polyline points="20,290 80,270 65,310 140,300 130,340 220,300 256,256" stroke-width="6" />
+    <polyline points="80,270 110,230 135,245" stroke-width="3" stroke="#FFFFFF" />
+    
+    <!-- Top Violent Branch -->
+    <polyline points="270,20 250,70 280,85 245,140" stroke-width="4.5" />
+  </g>
+
+  <!-- ==========================================
+       ZONE 4: THE GRAVITATIONAL RIFT VORTEX (Pulling It All In)
+       ========================================== -->
+  <!-- Swirling Cyclone Filaments Sucking in Heat, Ice & Lightning -->
+  <g fill="none" stroke-linecap="round" filter="url(#riftClashGlow)">
+    <!-- Molten Fire Stream Suction -->
+    <path d="M 440 430 C 370 450 290 400 270 330 C 255 285 275 250 256 256" stroke="#F97316" stroke-width="8" />
+    <path d="M 470 280 C 430 330 360 330 310 290" stroke="#FDE047" stroke-width="4.5" />
+
+    <!-- Blizzard Air Suction Stream -->
+    <path d="M 80 70 C 160 50 240 100 250 170 C 255 210 235 245 256 256" stroke="#FFFFFF" stroke-width="9" />
+    <path d="M 60 210 C 100 160 170 165 215 205" stroke="#BAE6FD" stroke-width="4.5" />
+
+    <!-- Purple Energy Vortex Spirals -->
+    <path d="M 400 90 C 330 130 290 200 256 256" stroke="#C084FC" stroke-width="6" />
+    <path d="M 120 410 C 180 390 220 330 256 256" stroke="#A855F7" stroke-width="6" />
+  </g>
+
+  <!-- CENTRAL SINGULARITY (Pure Black Hole Core) -->
+  <circle cx="256" cy="256" r="88" fill="url(#singularityCore)" filter="url(#riftClashGlow)" />
+  <circle cx="256" cy="256" r="72" fill="#030008" stroke="#000000" stroke-width="5" />
+  <circle cx="256" cy="256" r="74" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.9" filter="url(#riftClashGlow)" />
+
+  <!-- ==========================================
+       OVERLAY: CHISELED COMIC "FS" SCATTER INSIGNIA
+       ========================================== -->
+  <!-- Dark Heavy Drop Shadow Plaque for Symbol Recognition -->
+  <polygon points="150,170 362,170 392,256 362,342 150,342 120,256" 
+           fill="#0A0A0F" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+
+  <!-- Incandescent Runic Border Framing -->
+  <polygon points="160,182 352,182 377,256 352,330 160,330 135,256" 
+           fill="#140A24" stroke="#E879F9" stroke-width="3.5" stroke-dasharray="14, 6" filter="url(#riftClashGlow)" />
+
+  <!-- HIGH-IMPACT "FS" (Free Spins) TYPOGRAPHY -->
+  <!-- Letter F -->
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="miter" filter="url(#riftClashGlow)">
+    <path d="M 190 205 L 190 310" stroke-width="22" />
+    <path d="M 190 215 L 245 215" stroke-width="18" />
+    <path d="M 190 255 L 235 255" stroke-width="16" />
+  </g>
+  <g fill="none" stroke="#38BDF8" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 190 205 L 190 310" stroke-width="12" />
+    <path d="M 190 215 L 245 215" stroke-width="10" />
+    <path d="M 190 255 L 235 255" stroke-width="8" />
+  </g>
+
+  <!-- Letter S -->
+  <g fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="miter" filter="url(#riftClashGlow)">
+    <path d="M 320 220 L 270 220 L 270 255 L 320 270 L 320 305 L 260 305" stroke-width="20" />
+  </g>
+  <g fill="none" stroke="#F43F5E" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M 320 220 L 270 220 L 270 255 L 320 270 L 320 305 L 260 305" stroke-width="10" />
+  </g>
+
+  <!-- "OVERLOAD" RIFT PILL -->
+  <rect x="186" y="318" width="140" height="20" fill="#000000" rx="4" stroke="#FACC15" stroke-width="2" />
+  <text x="256" y="333" font-family="'Impact', 'Arial Black', sans-serif" font-size="12" font-weight="900" 
+        letter-spacing="2.5" fill="#FACC15" text-anchor="middle" filter="url(#riftClashGlow)">OVERLOAD</text>
+
+  <!-- ==========================================
+       FOREGROUND ELEMENTAL SPARKS & BLIZZARD PARTICLES
+       ========================================== -->
+  <!-- Blizzard Snow Flakes (Top Left) -->
+  <circle cx="100" cy="110" r="3" fill="#FFFFFF" filter="url(#riftClashGlow)" />
+  <circle cx="140" cy="70" r="4" fill="#FFFFFF" filter="url(#riftClashGlow)" />
+  <circle cx="60" cy="170" r="2.5" fill="#BAE6FD" />
+  
+  <!-- Kindling Magma Embers (Bottom Right) -->
+  <circle cx="390" cy="410" r="4" fill="#FDE047" filter="url(#riftClashGlow)" />
+  <circle cx="440" cy="360" r="3" fill="#F97316" filter="url(#riftClashGlow)" />
+  <circle cx="320" cy="450" r="3.5" fill="#DC2626" />
+
+  <!-- Purple Lightning Sparks -->
+  <circle cx="430" cy="40" r="5" fill="#FFFFFF" filter="url(#riftClashGlow)" />
+  <circle cx="330" cy="190" r="3.5" fill="#E879F9" filter="url(#riftClashGlow)" />
+  <circle cx="90" cy="280" r="3.5" fill="#E879F9" filter="url(#riftClashGlow)" />
+</svg>

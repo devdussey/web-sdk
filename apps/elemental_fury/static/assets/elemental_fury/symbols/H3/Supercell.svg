@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Intense Lightning Bloom Filter -->
+    <filter id="lightningGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Abyssal Thundercloud Backdrop -->
+    <radialGradient id="thunderSky" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#2D124D" />
+      <stop offset="55%" stop-color="#140726" />
+      <stop offset="100%" stop-color="#07020F" />
+    </radialGradient>
+
+    <!-- Roiling Storm Cloud Shading -->
+    <linearGradient id="cloudBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4C1D95" />
+      <stop offset="35%" stop-color="#2E1065" />
+      <stop offset="70%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#0F0A1C" />
+    </linearGradient>
+
+    <!-- Lightning Bolt Core Gradient -->
+    <linearGradient id="boltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#818CF8" />
+    </linearGradient>
+
+    <!-- Internal Cloud Flash / Sheet Lightning Gradient -->
+    <radialGradient id="internalFlash" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#C084FC" />
+      <stop offset="60%" stop-color="#581C87" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Dark Tile Canvas -->
+  <rect width="512" height="512" fill="url(#thunderSky)" rx="32" />
+
+  <!-- BACKGROUND ARCANE THUNDER GLYPHS -->
+  <g fill="none" stroke="#7E22CE" stroke-width="2.5" opacity="0.5" stroke-linecap="round">
+    <!-- Top Flank Runes -->
+    <path d="M 50 50 L 70 80 L 45 100 L 75 130" />
+    <path d="M 80 55 L 55 55 L 55 95" />
+    <path d="M 460 50 L 440 80 L 465 100 L 435 130" />
+    <path d="M 430 55 L 455 55 L 455 95" />
+    <!-- Torrential Rain Lines -->
+    <line x1="40" y1="200" x2="25" y2="260" stroke-dasharray="6, 10" />
+    <line x1="70" y1="310" x2="55" y2="370" stroke-dasharray="6, 10" />
+    <line x1="470" y1="200" x2="455" y2="260" stroke-dasharray="6, 10" />
+    <line x1="440" y1="310" x2="425" y2="370" stroke-dasharray="6, 10" />
+  </g>
+
+  <!-- INTERNAL SHEET LIGHTNING GLOW -->
+  <ellipse cx="256" cy="200" rx="180" ry="140" fill="url(#internalFlash)" opacity="0.8" />
+
+  <!-- ROILING ANVIL STORM CLOUD BODY (Silhouetted Mass) -->
+  <!-- Top Anvil Crest Lobes -->
+  <path d="M 120 200 C 90 140 130 70 200 65 C 230 30 290 30 320 65 C 390 70 430 140 395 200 C 440 260 410 350 350 380 C 310 440 200 440 160 380 C 100 350 75 260 120 200 Z" 
+        fill="url(#cloudBody)" stroke="#000000" stroke-width="9" stroke-linejoin="round" />
+
+  <!-- Internal Cloud Rolling Curves & Inking -->
+  <g stroke="#000000" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M 150 160 C 180 120 230 130 256 150 C 285 130 335 120 365 160" />
+    <path d="M 110 240 C 140 210 180 230 200 260" />
+    <path d="M 405 240 C 375 210 335 230 315 260" />
+    <path d="M 160 360 C 200 390 315 390 355 360" />
+  </g>
+
+  <!-- BLINDING JAGGED LIGHTNING STRIKES (Erupting Out of the Storm) -->
+  <g fill="none" stroke="url(#boltGrad)" stroke-linecap="square" stroke-linejoin="miter" filter="url(#lightningGlow)">
+    <!-- Main Left Lightning Strike -->
+    <polyline points="210,130 180,180 205,190 160,260 185,270 120,370 145,375 80,480" stroke-width="6" />
+    <polyline points="180,180 140,200 155,230 110,270" stroke-width="3.5" />
+    <polyline points="160,260 130,290 145,310 100,360" stroke-width="3" />
+
+    <!-- Main Right Lightning Strike -->
+    <polyline points="305,130 335,180 310,190 355,260 330,270 395,370 370,375 435,480" stroke-width="6" />
+    <polyline points="335,180 375,200 360,230 405,270" stroke-width="3.5" />
+    <polyline points="355,260 385,290 370,310 415,360" stroke-width="3" />
+
+    <!-- Top Crown Arcs -->
+    <polyline points="230,65 256,20 285,65" stroke-width="4.5" />
+    <polyline points="190,75 160,40 175,90" stroke-width="3" />
+    <polyline points="325,75 355,40 340,90" stroke-width="3" />
+  </g>
+
+  <!-- THUNDER TITAN VISAGE (Eyes & Roaring Storm Maw) -->
+  <!-- Blaring Electric Eyes (Jagged Lightning Slits) -->
+  <!-- Left Eye -->
+  <polygon points="175,210 235,225 210,245 170,230" fill="#FFFFFF" filter="url(#lightningGlow)" stroke="#000000" stroke-width="4" />
+  <polyline points="160,205 245,225" stroke="#000000" stroke-width="7" stroke-linecap="round" />
+
+  <!-- Right Eye -->
+  <polygon points="340,210 280,225 305,245 345,230" fill="#FFFFFF" filter="url(#lightningGlow)" stroke="#000000" stroke-width="4" />
+  <polyline points="355,205 270,225" stroke="#000000" stroke-width="7" stroke-linecap="round" />
+
+  <!-- Roaring Thunder Maw (Vortex of Lightning Discharge) -->
+  <!-- Outer Mouth Cavity -->
+  <path d="M 195 295 Q 256 270 320 295 Q 345 375 256 415 Q 170 375 195 295 Z" 
+        fill="#0B0314" stroke="#000000" stroke-width="8" stroke-linejoin="round" />
+
+  <!-- Inner Lightning Chasm -->
+  <ellipse cx="256" cy="350" rx="45" ry="30" fill="#6B21A8" filter="url(#lightningGlow)" />
+  
+  <!-- Discharging Lightning Bolts in Mouth -->
+  <path d="M 230 300 L 245 345 L 235 355 L 256 395 L 275 350 L 265 340 L 285 300" 
+        fill="none" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="miter" filter="url(#lightningGlow)" />
+
+  <!-- Sharp Lightning Fangs -->
+  <polygon points="210,295 220,320 230,295" fill="#38BDF8" stroke="#000000" stroke-width="2" />
+  <polygon points="285,295 295,320 305,295" fill="#38BDF8" stroke="#000000" stroke-width="2" />
+  <polygon points="235,395 245,370 255,395" fill="#38BDF8" stroke="#000000" stroke-width="2" />
+  <polygon points="260,395 270,370 280,395" fill="#38BDF8" stroke="#000000" stroke-width="2" />
+
+  <!-- COMIC INK HATCHING ON CLOUD MASS -->
+  <g stroke="#000000" stroke-width="3.5" stroke-linecap="round">
+    <!-- Forehead Storm Creases -->
+    <line x1="240" y1="175" x2="240" y2="200" />
+    <line x1="256" y1="170" x2="256" y2="205" />
+    <line x1="272" y1="175" x2="272" y2="200" />
+    <!-- Jaw Creases -->
+    <line x1="210" y1="410" x2="225" y2="430" />
+    <line x1="305" y1="410" x2="290" y2="430" />
+  </g>
+
+  <!-- FLOATING ELECTRIC SPARKS -->
+  <circle cx="100" cy="140" r="4" fill="#FFFFFF" filter="url(#lightningGlow)" />
+  <circle cx="410" cy="140" r="4" fill="#FFFFFF" filter="url(#lightningGlow)" />
+  <circle cx="60" cy="300" r="3" fill="#38BDF8" filter="url(#lightningGlow)" />
+  <circle cx="455" cy="300" r="3" fill="#38BDF8" filter="url(#lightningGlow)" />
+  <circle cx="256" cy="465" r="4" fill="#38BDF8" filter="url(#lightningGlow)" />
+</svg>

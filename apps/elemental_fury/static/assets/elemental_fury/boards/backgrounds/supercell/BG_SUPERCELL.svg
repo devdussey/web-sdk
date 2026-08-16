@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <filter id="stormGlowFS" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="9" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <radialGradient id="stormAbyss" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#19062E" />
+      <stop offset="50%" stop-color="#0B0217" />
+      <stop offset="100%" stop-color="#020005" />
+    </radialGradient>
+
+    <linearGradient id="cloudMass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4C1D95" />
+      <stop offset="35%" stop-color="#2E1065" />
+      <stop offset="70%" stop-color="#140726" />
+      <stop offset="100%" stop-color="#080210" />
+    </linearGradient>
+
+    <linearGradient id="purpleBoltGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#F5D0FE" />
+      <stop offset="65%" stop-color="#C084FC" />
+      <stop offset="90%" stop-color="#9333EA" />
+      <stop offset="100%" stop-color="#581C87" />
+    </linearGradient>
+  </defs>
+
+  <!-- Deep Sky Abyss -->
+  <rect width="1920" height="1080" fill="url(#stormAbyss)" />
+
+  <!-- SHEET LIGHTNING FLASH BLOOMS (Left & Right Flanks) -->
+  <circle cx="280" cy="540" r="450" fill="#9333EA" opacity="0.2" filter="url(#stormGlowFS)" />
+  <circle cx="1640" cy="540" r="450" fill="#9333EA" opacity="0.2" filter="url(#stormGlowFS)" />
+  <circle cx="960" cy="180" r="350" fill="#C084FC" opacity="0.15" filter="url(#stormGlowFS)" />
+
+  <!-- ROILING CUMULONIMBUS STORM CLOUD HEADS (Flanking Walls) -->
+  <!-- Left Cloud Wall -->
+  <path d="M -100 -50 L 380 -50 C 420 120 360 240 440 380 C 500 500 420 640 460 780 C 490 920 380 1060 320 1130 L -100 1130 Z" 
+        fill="url(#cloudMass)" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+  
+  <!-- Right Cloud Wall -->
+  <path d="M 2020 -50 L 1540 -50 C 1500 120 1560 240 1480 380 C 1420 500 1500 640 1460 780 C 1430 920 1540 1060 1600 1130 L 2020 1130 Z" 
+        fill="url(#cloudMass)" stroke="#000000" stroke-width="12" stroke-linejoin="round" />
+
+  <!-- Internal Comic Cloud Contour Inking -->
+  <g stroke="#000000" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M 120 220 C 220 180 340 240 380 320" />
+    <path d="M 180 560 C 280 500 380 580 420 680" />
+    <path d="M 1800 220 C 1700 180 1580 240 1540 320" />
+    <path d="M 1740 560 C 1640 500 1540 580 1500 680" />
+  </g>
+
+  <!-- VIOLENT GROUNDING LIGHTNING STRIKES -->
+  <g fill="none" stroke-linecap="square" stroke-linejoin="miter" filter="url(#stormGlowFS)">
+    <!-- Left Flank Major Strike -->
+    <polyline points="280,0 230,160 270,180 180,380 220,400 120,680 170,700 80,1080" stroke="url(#purpleBoltGrad)" stroke-width="9" />
+    <polyline points="280,0 230,160 270,180 180,380 220,400 120,680 170,700 80,1080" stroke="#FFFFFF" stroke-width="3" />
+    <polyline points="180,380 120,420 140,460 80,540" stroke="#E879F9" stroke-width="4" />
+
+    <!-- Right Flank Major Strike -->
+    <polyline points="1640,0 1690,160 1650,180 1740,380 1700,400 1800,680 1750,700 1840,1080" stroke="url(#purpleBoltGrad)" stroke-width="9" />
+    <polyline points="1640,0 1690,160 1650,180 1740,380 1700,400 1800,680 1750,700 1840,1080" stroke="#FFFFFF" stroke-width="3" />
+    <polyline points="1740,380 1800,420 1780,460 1840,540" stroke="#E879F9" stroke-width="4" />
+
+    <!-- Top Crown Arcs (Bridging Overhead) -->
+    <polyline points="680,60 820,120 960,40 1100,120 1240,60" stroke="#C084FC" stroke-width="4" />
+  </g>
+
+  <!-- TORRENTIAL ANGLED RAIN LINES -->
+  <g stroke="#9333EA" stroke-width="2.5" opacity="0.4" stroke-dasharray="10, 18" stroke-linecap="round">
+    <line x1="220" y1="120" x2="160" y2="280" />
+    <line x1="380" y1="340" x2="320" y2="500" />
+    <line x1="240" y1="640" x2="180" y2="800" />
+    <line x1="1700" y1="120" x2="1640" y2="280" />
+    <line x1="1540" y1="340" x2="1480" y2="500" />
+    <line x1="1680" y1="640" x2="1620" y2="800" />
+  </g>
+
+  <!-- IONIZED DISCHARGE NODES & SPARKS -->
+  <g filter="url(#stormGlowFS)">
+    <circle cx="120" cy="680" r="6" fill="#FFFFFF" />
+    <circle cx="1800" cy="680" r="6" fill="#FFFFFF" />
+    <circle cx="270" cy="180" r="4.5" fill="#E879F9" />
+    <circle cx="1650" cy="180" r="4.5" fill="#E879F9" />
+    <circle cx="960" cy="40" r="5" fill="#FFFFFF" />
+  </g>
+</svg>

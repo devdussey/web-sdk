@@ -1,0 +1,274 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="100%" height="100%">
+  <defs>
+    <!-- Sharp atmospheric depth & glow filters -->
+    <filter id="crispGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <filter id="superGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Void Sky Gradient (High Clarity Dark Center for 6x5 Board) -->
+    <radialGradient id="skyVoid" cx="50%" cy="46%" r="70%">
+      <stop offset="0%" stop-color="#0F091A" />
+      <stop offset="35%" stop-color="#080410" />
+      <stop offset="70%" stop-color="#030206" />
+      <stop offset="100%" stop-color="#000000" />
+    </radialGradient>
+
+    <!-- Central Board Backing Gradient (Focal Clarity Behind 6x5 Matrix) -->
+    <radialGradient id="centerPlate" cx="50%" cy="46%" r="42%">
+      <stop offset="0%" stop-color="#180C2C" stop-opacity="0.85" />
+      <stop offset="65%" stop-color="#090412" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- ==================== ELEMENT GRADIENTS ==================== -->
+    <!-- 1. Subzero Ice (Top-Left) -->
+    <linearGradient id="iceSpireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F0F9FF" />
+      <stop offset="25%" stop-color="#7DD3FC" />
+      <stop offset="65%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#082F49" />
+    </linearGradient>
+
+    <linearGradient id="iceConduit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#0284C7" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#0369A1" stop-opacity="0.0" />
+    </linearGradient>
+
+    <radialGradient id="iceCornerAura" cx="600" cy="200" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.45" />
+      <stop offset="40%" stop-color="#0284C7" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#082F49" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- 2. Wildfire Magma (Top-Right) -->
+    <linearGradient id="fireCragGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FEF08A" />
+      <stop offset="25%" stop-color="#F97316" />
+      <stop offset="60%" stop-color="#DC2626" />
+      <stop offset="100%" stop-color="#450A0A" />
+    </linearGradient>
+
+    <linearGradient id="fireConduit" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#EA580C" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#991B1B" stop-opacity="0.0" />
+    </linearGradient>
+
+    <radialGradient id="fireCornerAura" cx="1320" cy="200" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F97316" stop-opacity="0.45" />
+      <stop offset="40%" stop-color="#DC2626" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#450A0A" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- 3. Supercell Lightning (Bottom-Left) -->
+    <linearGradient id="stormCragGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F5D0FE" />
+      <stop offset="35%" stop-color="#C084FC" />
+      <stop offset="70%" stop-color="#7E22CE" />
+      <stop offset="100%" stop-color="#1E0538" />
+    </linearGradient>
+
+    <linearGradient id="stormConduit" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E879F9" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#A855F7" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#581C87" stop-opacity="0.0" />
+    </linearGradient>
+
+    <radialGradient id="stormCornerAura" cx="600" cy="800" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#C084FC" stop-opacity="0.45" />
+      <stop offset="40%" stop-color="#7E22CE" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#1E0538" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- 4. Maelstrom Tempest (Bottom-Right) -->
+    <linearGradient id="windGaleGrad" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#F0FDFA" />
+      <stop offset="30%" stop-color="#5EEAD4" />
+      <stop offset="65%" stop-color="#0D9488" />
+      <stop offset="100%" stop-color="#042F2E" />
+    </linearGradient>
+
+    <linearGradient id="windConduit" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#0D9488" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#042F2E" stop-opacity="0.0" />
+    </linearGradient>
+
+    <radialGradient id="windCornerAura" cx="1320" cy="800" r="300" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.45" />
+      <stop offset="40%" stop-color="#0F766E" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#042F2E" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- ========================================================================= -->
+  <!-- 1. BASE CANVAS & CENTRAL FOCUS ZONE                                       -->
+  <!-- ========================================================================= -->
+  <rect width="1920" height="1080" fill="url(#skyVoid)" />
+
+  <!-- Soft Central Backing behind Board -->
+  <ellipse cx="960" cy="500" rx="660" ry="460" fill="url(#centerPlate)" />
+
+  <!-- ========================================================================= -->
+  <!-- 2. CORNER ELEMENTAL AURAS (ANCHORED AT 600,200 / 1320,200 / 600,800 / 1320,800) -->
+  <!-- ========================================================================= -->
+  <circle cx="600" cy="200" r="280" fill="url(#iceCornerAura)" />
+  <circle cx="1320" cy="200" r="280" fill="url(#fireCornerAura)" />
+  <circle cx="600" cy="800" r="280" fill="url(#stormCornerAura)" />
+  <circle cx="1320" cy="800" r="280" fill="url(#windCornerAura)" />
+
+  <!-- ========================================================================= -->
+  <!-- 3. TOP-LEFT REALM: SUBZERO (GLACIAL SPIRES & CONVERGENCE CONDUITS)        -->
+  <!-- ========================================================================= -->
+  <g id="realm-subzero">
+    <!-- Ambient Glacial Backglow -->
+    <path d="M-100,-100 L850,-100 L600,220 L-100,550 Z" fill="#0284C7" opacity="0.12" />
+
+    <!-- Distant Sharp Crystal Peaks -->
+    <polygon points="-50,220 120,-40 280,180 390,-10 520,240 640,60 740,290 600,420 -50,450" fill="#082F49" opacity="0.6" />
+    
+    <!-- Mid-ground Glacial Spires -->
+    <polygon points="-30,380 90,80 180,260 270,110 390,320 220,480 -30,520" fill="url(#iceSpireGrad)" stroke="#38BDF8" stroke-width="2" />
+    <polygon points="120,-30 240,160 170,290 60,110" fill="#7DD3FC" opacity="0.85" />
+    <polygon points="270,110 390,320 330,420 210,230" fill="#0284C7" opacity="0.9" />
+
+    <!-- Foreground Massive Glacial Obelisk aiming toward Top-Left Corner (600, 200) -->
+    <polygon points="-60,180 140,-60 190,140 30,340" fill="url(#iceSpireGrad)" stroke="#E0F2FE" stroke-width="2.5" />
+    <polygon points="140,-60 280,40 210,220 190,140" fill="#BAE6FD" opacity="0.75" />
+    <polygon points="-60,180 30,340 -60,420" fill="#0369A1" opacity="0.9" />
+
+    <!-- Glacial Convergence Ridge directly anchoring into (600, 200) -->
+    <polygon points="240,160 600,200 480,270 330,380" fill="url(#iceSpireGrad)" opacity="0.7" stroke="#7DD3FC" stroke-width="1.5" />
+    <polygon points="340,60 600,200 440,140" fill="#BAE6FD" opacity="0.85" />
+
+    <!-- Kinetic Ice Energy Filaments -->
+    <path d="M120,-40 Q350,80 600,200" fill="none" stroke="#E0F2FE" stroke-width="3" filter="url(#crispGlow)" />
+    <path d="M280,180 Q450,190 600,200" fill="none" stroke="#38BDF8" stroke-width="2" filter="url(#crispGlow)" />
+    <path d="M-30,380 Q300,320 600,200" fill="none" stroke="#0284C7" stroke-width="1.5" opacity="0.6" />
+
+    <!-- Sharp Kinetic Frost Shards around Corner Anchor -->
+    <polygon points="560,160 590,140 575,190" fill="#FFFFFF" filter="url(#crispGlow)" />
+    <polygon points="520,220 560,210 535,250" fill="#7DD3FC" filter="url(#crispGlow)" />
+    <polygon points="480,130 520,110 500,160" fill="#BAE6FD" />
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 4. TOP-RIGHT REALM: WILDFIRE (VOLCANIC CRAGS & MAGMA CONVERGENCE)        -->
+  <!-- ========================================================================= -->
+  <g id="realm-wildfire">
+    <!-- Ambient Magma Backglow -->
+    <path d="M2020,-100 L1070,-100 L1320,220 L2020,550 Z" fill="#DC2626" opacity="0.12" />
+
+    <!-- Distant Volcanic Silhouette -->
+    <polygon points="1970,220 1800,-40 1640,180 1530,-10 1400,240 1280,60 1180,290 1320,420 1970,450" fill="#450A0A" opacity="0.6" />
+
+    <!-- Mid-ground Magma Crags -->
+    <polygon points="1950,380 1830,80 1740,260 1650,110 1530,320 1700,480 1950,520" fill="url(#fireCragGrad)" stroke="#F97316" stroke-width="2" />
+    <polygon points="1800,-30 1680,160 1750,290 1860,110" fill="#FEF08A" opacity="0.85" />
+    <polygon points="1650,110 1530,320 1590,420 1710,230" fill="#DC2626" opacity="0.9" />
+
+    <!-- Foreground Volcanic Fang -->
+    <polygon points="1980,180 1780,-60 1730,140 1890,340" fill="url(#fireCragGrad)" stroke="#FEF08A" stroke-width="2.5" />
+    <polygon points="1780,-60 1640,40 1710,220 1730,140" fill="#F97316" opacity="0.75" />
+    <polygon points="1980,180 1890,340 1980,420" fill="#7F1D1D" opacity="0.9" />
+
+    <!-- Magma Ridge directly anchoring into (1320, 200) -->
+    <polygon points="1680,160 1320,200 1440,270 1590,380" fill="url(#fireCragGrad)" opacity="0.7" stroke="#F97316" stroke-width="1.5" />
+    <polygon points="1580,60 1320,200 1480,140" fill="#FEF08A" opacity="0.85" />
+
+    <!-- Molten Magma Conduits directly feeding (1320, 200) -->
+    <path d="M1800,-40 Q1570,80 1320,200" fill="none" stroke="#FEF08A" stroke-width="3" filter="url(#crispGlow)" />
+    <path d="M1640,180 Q1470,190 1320,200" fill="none" stroke="#F97316" stroke-width="2" filter="url(#crispGlow)" />
+    <path d="M1950,380 Q1620,320 1320,200" fill="none" stroke="#DC2626" stroke-width="1.5" opacity="0.6" />
+
+    <!-- Burning Embers & Magma Sparks at Corner Anchor -->
+    <circle cx="1350" cy="170" r="5" fill="#FEF08A" filter="url(#crispGlow)" />
+    <circle cx="1380" cy="220" r="4" fill="#F97316" filter="url(#crispGlow)" />
+    <polygon points="1360,150 1380,135 1370,170" fill="#FFEDD5" filter="url(#crispGlow)" />
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 5. BOTTOM-LEFT REALM: SUPERCELL (LIGHTNING ARCS & STORM CONVERGENCE)      -->
+  <!-- ========================================================================= -->
+  <g id="realm-supercell">
+    <!-- Ambient Storm Backglow -->
+    <path d="M-100,1180 L850,1180 L600,800 L-100,550 Z" fill="#7E22CE" opacity="0.12" />
+
+    <!-- Distant Storm Crags -->
+    <polygon points="-50,860 120,1120 280,900 390,1090 520,840 640,1020 740,790 600,660 -50,630" fill="#1E0538" opacity="0.6" />
+
+    <!-- Mid-ground Violet Peaks -->
+    <polygon points="-30,700 90,1000 180,820 270,970 390,760 220,600 -30,560" fill="url(#stormCragGrad)" stroke="#C084FC" stroke-width="2" />
+    <polygon points="120,1110 240,920 170,790 60,970" fill="#F5D0FE" opacity="0.85" />
+    <polygon points="270,970 390,760 330,660 210,850" fill="#7E22CE" opacity="0.9" />
+
+    <!-- Supercell Ridge directly anchoring into (600, 800) -->
+    <polygon points="240,920 600,800 480,730 330,620" fill="url(#stormCragGrad)" opacity="0.7" stroke="#C084FC" stroke-width="1.5" />
+    <polygon points="340,1020 600,800 440,860" fill="#F5D0FE" opacity="0.85" />
+
+    <!-- Ionized Plasma Lightning Conduits branching directly into (600, 800) -->
+    <path d="M-20,950 L120,880 L200,920 L340,810 L460,840 L600,800" fill="none" stroke="#FFFFFF" stroke-width="2.5" filter="url(#crispGlow)" />
+    <path d="M120,1120 L240,990 L380,920 L480,830 L600,800" fill="none" stroke="#E879F9" stroke-width="2" filter="url(#crispGlow)" />
+    <path d="M-50,680 Q280,750 600,800" fill="none" stroke="#7E22CE" stroke-width="1.5" opacity="0.6" />
+
+    <!-- Ionized Plasma Clusters around Corner Anchor -->
+    <polygon points="560,840 590,860 575,810" fill="#FFFFFF" filter="url(#crispGlow)" />
+    <polygon points="520,780 560,790 535,750" fill="#E879F9" filter="url(#crispGlow)" />
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 6. BOTTOM-RIGHT REALM: MAELSTROM (CYCLONE SPIRALS & GALE CONVERGENCE)     -->
+  <!-- ========================================================================= -->
+  <g id="realm-maelstrom">
+    <!-- Ambient Gale Backglow -->
+    <path d="M2020,1180 L1070,1180 L1320,800 L2020,550 Z" fill="#0D9488" opacity="0.12" />
+
+    <!-- Distant Tempest Reefs -->
+    <polygon points="1970,860 1800,1120 1640,900 1530,1090 1400,840 1280,1020 1180,790 1320,660 1970,630" fill="#042F2E" opacity="0.6" />
+
+    <!-- Mid-ground Emerald Spire Reefs -->
+    <polygon points="1950,700 1830,1000 1740,820 1650,970 1530,760 1700,600 1950,560" fill="url(#windGaleGrad)" stroke="#5EEAD4" stroke-width="2" />
+    <polygon points="1800,1110 1680,920 1750,790 1860,970" fill="#F0FDFA" opacity="0.85" />
+    <polygon points="1650,970 1530,760 1590,660 1710,850" fill="#0D9488" opacity="0.9" />
+
+    <!-- Maelstrom Ridge directly anchoring into (1320, 800) -->
+    <polygon points="1680,920 1320,800 1440,730 1590,620" fill="url(#windGaleGrad)" opacity="0.7" stroke="#5EEAD4" stroke-width="1.5" />
+    <polygon points="1580,1020 1320,800 1480,860" fill="#CCFBF1" opacity="0.85" />
+
+    <!-- Swirling Vortex Cyclone Outer Spiral Arm sweeping directly into (1320, 800) -->
+    <path d="M1980,850 C1850,1050 1550,1000 1320,800" fill="none" stroke="#5EEAD4" stroke-width="3" filter="url(#crispGlow)" />
+    <path d="M1850,720 C1650,880 1480,880 1320,800" fill="none" stroke="#2DD4BF" stroke-width="2" filter="url(#crispGlow)" />
+    <path d="M1680,920 Q1480,840 1320,800" fill="none" stroke="#0D9488" stroke-width="1.5" opacity="0.6" />
+
+    <!-- Tempest Wind Wisps & Shards at Corner Anchor -->
+    <polygon points="1360,840 1385,860 1370,810" fill="#F0FDFA" filter="url(#crispGlow)" />
+    <polygon points="1390,780 1420,795 1400,755" fill="#5EEAD4" filter="url(#crispGlow)" />
+  </g>
+
+  <!-- ========================================================================= -->
+  <!-- 7. CENTRAL CORONA QUADRANT GLOW (BORDER KISSING REELS FRAME 720x600)      -->
+  <!-- ========================================================================= -->
+  <g id="central-convergence-frame" opacity="0.65">
+    <!-- Top-Left Cyan Quadrant Glow -->
+    <path d="M960,500 L600,200 L960,200 Z" fill="url(#iceConduit)" opacity="0.18" />
+    <!-- Top-Right Fire Quadrant Glow -->
+    <path d="M960,500 L1320,200 L960,200 Z" fill="url(#fireConduit)" opacity="0.18" />
+    <!-- Bottom-Left Storm Quadrant Glow -->
+    <path d="M960,500 L600,800 L960,800 Z" fill="url(#stormConduit)" opacity="0.18" />
+    <!-- Bottom-Right Wind Quadrant Glow -->
+    <path d="M960,500 L1320,800 L960,800 Z" fill="url(#windConduit)" opacity="0.18" />
+  </g>
+</svg>

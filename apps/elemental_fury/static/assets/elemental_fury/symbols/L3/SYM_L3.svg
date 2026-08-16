@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Intense Purple Storm Bloom Filter -->
+    <filter id="stormGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="7" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Void Backdrop -->
+    <radialGradient id="l3Bg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#1A072E" />
+      <stop offset="55%" stop-color="#0B0214" />
+      <stop offset="100%" stop-color="#020005" />
+    </radialGradient>
+
+    <!-- Dark Basalt Diamond Tablet -->
+    <linearGradient id="l3Stone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B2050" />
+      <stop offset="50%" stop-color="#1E0C2E" />
+      <stop offset="100%" stop-color="#0B0312" />
+    </linearGradient>
+
+    <!-- Heavy Ominous Black Storm Cloud Gradient -->
+    <linearGradient id="blackCloud" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3B125C" />
+      <stop offset="35%" stop-color="#1F0833" />
+      <stop offset="75%" stop-color="#11031C" />
+      <stop offset="100%" stop-color="#06010A" />
+    </linearGradient>
+
+    <!-- Internal Cloud Flash Glow (Sheet Lightning) -->
+    <radialGradient id="cloudFlash" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#E879F9" />
+      <stop offset="50%" stop-color="#9333EA" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Violent Purple Lightning Bolt Gradient -->
+    <linearGradient id="purpleBolt" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="30%" stop-color="#F5D0FE" />
+      <stop offset="60%" stop-color="#C084FC" />
+      <stop offset="85%" stop-color="#9333EA" />
+      <stop offset="100%" stop-color="#581C87" />
+    </linearGradient>
+  </defs>
+
+  <!-- Tile Canvas Base -->
+  <rect width="512" height="512" fill="url(#l3Bg)" rx="32" />
+  <rect x="24" y="24" width="464" height="464" rx="20" fill="none" stroke="#581C87" stroke-width="3.5" stroke-dasharray="10, 6" />
+
+  <!-- ANGULAR BASALT DIAMOND TABLET -->
+  <polygon points="256,45 450,256 256,467 62,256" 
+           fill="url(#l3Stone)" stroke="#000000" stroke-width="9" stroke-linejoin="round" />
+  <polygon points="256,75 420,256 256,437 92,256" 
+           fill="#07010C" stroke="#1C062E" stroke-width="4" stroke-linejoin="round" />
+
+  <!-- INTERNAL SHEET LIGHTNING FLASH (Illuminating the Clouds from Within) -->
+  <ellipse cx="256" cy="200" rx="130" ry="85" fill="url(#cloudFlash)" opacity="0.85" filter="url(#stormGlow)" />
+
+  <!-- ==========================================
+       ROILING HEAVY BLACK STORM CLOUDS
+       ========================================== -->
+  <!-- Back Puff Layer -->
+  <path d="M 170 190 C 140 140 190 100 240 110 C 260 80 310 80 330 110 C 370 110 400 150 370 200 Z" 
+        fill="#130421" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+
+  <!-- Main Cumulonimbus Black Cloud Mass -->
+  <path d="M 140 250 C 100 220 120 150 170 140 C 190 90 260 80 290 120 C 340 100 390 140 380 200 C 420 230 400 290 350 290 C 330 300 170 300 140 250 Z" 
+        fill="url(#blackCloud)" stroke="#000000" stroke-width="8" stroke-linejoin="round" />
+
+  <!-- Internal Comic Cloud Contour Folds -->
+  <g stroke="#000000" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M 170 190 C 200 160 250 170 270 190" />
+    <path d="M 280 160 C 320 140 360 170 350 210" />
+    <path d="M 190 250 C 230 230 310 230 340 260" />
+  </g>
+
+  <!-- Glowing Purple Cloud Edges (Crevices Bleeding High Voltage) -->
+  <path d="M 180 145 C 210 115 260 115 285 135" fill="none" stroke="#C084FC" stroke-width="3" stroke-linecap="round" filter="url(#stormGlow)" />
+  <path d="M 295 130 C 335 120 370 145 365 185" fill="none" stroke="#C084FC" stroke-width="3" stroke-linecap="round" filter="url(#stormGlow)" />
+
+  <!-- ==========================================
+       PURPLE LIGHTNING BOLT STRIKE (Erupting Downward)
+       ========================================== -->
+  <!-- Main Striking Bolt -->
+  <polygon points="270,230 220,310 260,315 210,415 285,300 245,295 295,230" 
+           fill="url(#purpleBolt)" stroke="#000000" stroke-width="5" stroke-linejoin="miter" filter="url(#stormGlow)" />
+
+  <!-- Incandescent White Core Filament Inside Bolt -->
+  <polyline points="280,240 240,305 270,310 225,395" 
+            fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="miter" filter="url(#stormGlow)" />
+
+  <!-- Secondary Discharge Branch -->
+  <polyline points="230,320 180,355 195,360 160,395" 
+            fill="none" stroke="#C084FC" stroke-width="3" stroke-linecap="round" stroke-linejoin="miter" filter="url(#stormGlow)" />
+
+  <!-- ==========================================
+       TORRENTIAL RAIN & COMIC CHISEL HATCHES
+       ========================================== -->
+  <!-- Dark Angled Rain Streaks -->
+  <g stroke="#9333EA" stroke-width="2.5" stroke-linecap="round" opacity="0.6" stroke-dasharray="8, 12">
+    <line x1="140" y1="290" x2="115" y2="350" />
+    <line x1="180" y1="310" x2="155" y2="370" />
+    <line x1="340" y1="290" x2="315" y2="350" />
+    <line x1="380" y1="310" x2="355" y2="370" />
+  </g>
+
+  <!-- Chisel Hatching on Tablet Edges -->
+  <g stroke="#000000" stroke-width="3.5" stroke-linecap="round">
+    <line x1="370" y1="160" x2="385" y2="175" />
+    <line x1="142" y1="160" x2="127" y2="175" />
+    <line x1="370" y1="352" x2="385" y2="337" />
+    <line x1="142" y1="352" x2="127" y2="337" />
+  </g>
+
+  <!-- High-Voltage Sparks & Rain Droplets -->
+  <circle cx="210" cy="425" r="4" fill="#FFFFFF" filter="url(#stormGlow)" />
+  <circle cx="160" cy="405" r="3" fill="#E879F9" filter="url(#stormGlow)" />
+  <circle cx="120" cy="210" r="3" fill="#C084FC" filter="url(#stormGlow)" />
+  <circle cx="395" cy="210" r="3" fill="#C084FC" filter="url(#stormGlow)" />
+  <circle cx="256" cy="65" r="3.5" fill="#E879F9" filter="url(#stormGlow)" />
+</svg>

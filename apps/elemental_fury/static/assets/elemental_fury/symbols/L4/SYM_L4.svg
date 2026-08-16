@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Glacial Snowflake Bloom Filter -->
+    <filter id="iceFlakeGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Deep Abyssal Permafrost Backdrop -->
+    <radialGradient id="l4Bg" cx="50%" cy="50%" r="65%">
+      <stop offset="0%" stop-color="#082845" />
+      <stop offset="60%" stop-color="#031424" />
+      <stop offset="100%" stop-color="#01060B" />
+    </radialGradient>
+
+    <!-- Frosted Granite Tablet Metal/Stone -->
+    <linearGradient id="l4Stone" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A54" />
+      <stop offset="50%" stop-color="#0F2438" />
+      <stop offset="100%" stop-color="#06121E" />
+    </linearGradient>
+
+    <!-- Crystalline Snowflake Gradient -->
+    <linearGradient id="flakeGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="40%" stop-color="#38BDF8" />
+      <stop offset="75%" stop-color="#BAE6FD" />
+      <stop offset="100%" stop-color="#FFFFFF" />
+    </linearGradient>
+
+    <!-- Core Jewel Radial Glow -->
+    <radialGradient id="coreFlakeGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="45%" stop-color="#BAE6FD" />
+      <stop offset="85%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#082F49" />
+    </radialGradient>
+
+    <!-- Single Dendritic Snowflake Arm (Rotated 6× around center) -->
+    <g id="snowflakeBranch">
+      <!-- Main Central Spire Stem -->
+      <polygon points="253,256 253,115 256,90 259,115 259,256" fill="url(#flakeGrad)" stroke="#000000" stroke-width="3" stroke-linejoin="round" />
+      <!-- Arrowhead Spear Tip -->
+      <polygon points="256,80 268,105 256,118 244,105" fill="#FFFFFF" stroke="#000000" stroke-width="3" stroke-linejoin="round" />
+      
+      <!-- Upper Chevron Prongs -->
+      <path d="M 256 135 L 285 105 L 290 115 L 259 150" fill="url(#flakeGrad)" stroke="#000000" stroke-width="2.5" stroke-linejoin="round" />
+      <path d="M 256 135 L 227 105 L 222 115 L 253 150" fill="url(#flakeGrad)" stroke="#000000" stroke-width="2.5" stroke-linejoin="round" />
+      <!-- Mini Sub-Prongs on Upper Chevron -->
+      <polygon points="275,115 285,110 282,122" fill="#FFFFFF" stroke="#000000" stroke-width="1.5" />
+      <polygon points="237,115 227,110 230,122" fill="#FFFFFF" stroke="#000000" stroke-width="1.5" />
+
+      <!-- Lower Main Chevron Prongs -->
+      <path d="M 256 185 L 298 145 L 305 157 L 259 205" fill="url(#flakeGrad)" stroke="#000000" stroke-width="3" stroke-linejoin="round" />
+      <path d="M 256 185 L 214 145 L 207 157 L 253 205" fill="url(#flakeGrad)" stroke="#000000" stroke-width="3" stroke-linejoin="round" />
+      <!-- Mini Sub-Prongs on Lower Chevron -->
+      <polygon points="282,160 298,155 292,172" fill="#FFFFFF" stroke="#000000" stroke-width="1.5" />
+      <polygon points="230,160 214,155 220,172" fill="#FFFFFF" stroke="#000000" stroke-width="1.5" />
+    </g>
+  </defs>
+
+  <!-- Tile Canvas Base -->
+  <rect width="512" height="512" fill="url(#l4Bg)" rx="32" />
+  <rect x="24" y="24" width="464" height="464" rx="20" fill="none" stroke="#0369A1" stroke-width="3.5" stroke-dasharray="10, 6" />
+
+  <!-- HEXAGONAL FROSTED GRANITE TABLET -->
+  <polygon points="256,55 435,155 435,357 256,457 77,357 77,155" 
+           fill="url(#l4Stone)" stroke="#000000" stroke-width="9" stroke-linejoin="round" />
+  <polygon points="256,80 410,170 410,342 256,432 102,342 102,170" 
+           fill="#020E1A" stroke="#0C2E4E" stroke-width="4" stroke-linejoin="round" />
+
+  <!-- ==========================================
+       6-FOLD INTRICATE RAZOR SNOWFLAKE
+       ========================================== -->
+  <!-- Ambient Frost Bloom Behind Snowflake -->
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#38BDF8" stroke-width="4" opacity="0.3" stroke-dasharray="6, 12" filter="url(#iceFlakeGlow)" />
+
+  <g filter="url(#iceFlakeGlow)">
+    <!-- Arm 1: 0° (North) -->
+    <use href="#snowflakeBranch" />
+    <!-- Arm 2: 60° (North-East) -->
+    <use href="#snowflakeBranch" transform="rotate(60 256 256)" />
+    <!-- Arm 3: 120° (South-East) -->
+    <use href="#snowflakeBranch" transform="rotate(120 256 256)" />
+    <!-- Arm 4: 180° (South) -->
+    <use href="#snowflakeBranch" transform="rotate(180 256 256)" />
+    <!-- Arm 5: 240° (South-West) -->
+    <use href="#snowflakeBranch" transform="rotate(240 256 256)" />
+    <!-- Arm 6: 300° (North-West) -->
+    <use href="#snowflakeBranch" transform="rotate(300 256 256)" />
+  </g>
+
+  <!-- ==========================================
+       CENTRAL CHISELED HEXAGONAL CORE JEWEL
+       ========================================== -->
+  <!-- Outer Shadow Hexagon -->
+  <polygon points="256,220 287,238 287,274 256,292 225,274 225,238" 
+           fill="#010A14" stroke="#000000" stroke-width="6" stroke-linejoin="round" />
+
+  <!-- Inner Radiant Ice Jewel Core -->
+  <polygon points="256,226 281,241 281,271 256,286 231,271 231,241" 
+           fill="url(#coreFlakeGlow)" stroke="#FFFFFF" stroke-width="2.5" stroke-linejoin="round" filter="url(#iceFlakeGlow)" />
+
+  <!-- Central Blinding Star Core -->
+  <polygon points="256,236 261,251 276,256 261,261 256,276 251,261 236,256 251,251" 
+           fill="#FFFFFF" />
+
+  <!-- ==========================================
+       COMIC INK CHISEL HATCHES & FROST PARTICLES
+       ========================================== -->
+  <g stroke="#000000" stroke-width="3.5" stroke-linecap="round">
+    <line x1="256" y1="80" x2="256" y2="65" />
+    <line x1="420" y1="256" x2="435" y2="256" />
+    <line x1="92" y1="256" x2="77" y2="256" />
+    <line x1="256" y1="432" x2="256" y2="447" />
+  </g>
+
+  <!-- Floating Crystal Snow Dust & Sparkles -->
+  <circle cx="150" cy="120" r="3" fill="#FFFFFF" filter="url(#iceFlakeGlow)" />
+  <circle cx="362" cy="120" r="3" fill="#FFFFFF" filter="url(#iceFlakeGlow)" />
+  <circle cx="120" cy="350" r="2.5" fill="#BAE6FD" filter="url(#iceFlakeGlow)" />
+  <circle cx="390" cy="350" r="2.5" fill="#BAE6FD" filter="url(#iceFlakeGlow)" />
+  <circle cx="256" cy="470" r="4" fill="#38BDF8" filter="url(#iceFlakeGlow)" />
+</svg>

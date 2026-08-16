@@ -135,6 +135,14 @@ type BookEventIceWinInfo = {
 	positions: (Position & { value: number })[];
 };
 
+// Rift Reveal: reports which elemental bonus was selected and total spins.
+type BookEventRiftRevealInfo = {
+	index: number;
+	type: 'riftRevealInfo';
+	element: ElementType;
+	totalFs: number;
+};
+
 export type BookEvent =
 	| BookEventReveal
 	| BookEventWinInfo
@@ -152,6 +160,7 @@ export type BookEvent =
 	| BookEventCoinCollectInfo
 	| BookEventIceFreezeInfo
 	| BookEventIceWinInfo
+	| BookEventRiftRevealInfo
 	// customised
 	| BookEventCreateBonusSnapshot;
 

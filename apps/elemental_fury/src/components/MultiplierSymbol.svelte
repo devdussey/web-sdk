@@ -3,6 +3,7 @@
 	import type { MultiplierSymbol } from '../game/stateGame.svelte';
 	import SymbolSpineMain from './SymbolSpineMain.svelte';
 	import SymbolSpineBackground from './SymbolSpineBackground.svelte';
+	import SymbolSprite from './SymbolSprite.svelte';
 
 	type Props = {
 		reelIndex: number;
@@ -18,6 +19,8 @@
 		}),
 	);
 
+	const isSprite = $derived(symbolInfo.type === 'sprite');
+
 	const symbolBackgroundInfo = $derived(
 		getSymbolBackgroundInfo({
 			rawSymbol: props.multiplierSymbol.rawSymbol,
@@ -26,17 +29,26 @@
 	);
 </script>
 
-<SymbolSpineBackground
-	{symbolBackgroundInfo}
-	x={props.multiplierSymbol.initX}
-	y={props.multiplierSymbol.initY}
-/>
+{#if isSprite}
+	<SymbolSprite
+		{symbolInfo}
+		x={props.multiplierSymbol.symbolX.current}
+		y={props.multiplierSymbol.symbolY.current}
+		oncomplete={props.multiplierSymbol.oncomplete}
+	/>
+{:else}
+	<SymbolSpineBackground
+		{symbolBackgroundInfo}
+		x={props.multiplierSymbol.initX}
+		y={props.multiplierSymbol.initY}
+	/>
 
-<SymbolSpineMain
-	{symbolInfo}
-	x={props.multiplierSymbol.symbolX.current}
-	y={props.multiplierSymbol.symbolY.current}
-	listener={{
-		complete: props.multiplierSymbol.oncomplete,
-	}}
-/>
+	<SymbolSpineMain
+		{symbolInfo}
+		x={props.multiplierSymbol.symbolX.current}
+		y={props.multiplierSymbol.symbolY.current}
+		listener={{
+			complete: props.multiplierSymbol.oncomplete,
+		}}
+	/>
+{/if}

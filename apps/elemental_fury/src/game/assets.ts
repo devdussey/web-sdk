@@ -9,8 +9,8 @@ export default {
 		preload: true,
 	},
 	pressToContinueText: {
-		type: 'sprites',
-		src: new URL('../../assets/sprites/pressToContinueText/MM_pressanywhere.json', import.meta.url).href,
+		type: 'sprite',
+		src: new URL('../../static/assets/sprites/ui/press_to_continue_elemental.svg', import.meta.url).href,
 		preload: true,
 	},
 	H1: {
@@ -268,9 +268,101 @@ export default {
 		type: 'spriteSheet',
 		src: new URL('../../assets/sprites/coin/SD2_Coin.json', import.meta.url).href,
 	},
-	sound: {
-		type: 'audio',
-		src: new URL('../../assets/audio/sounds.json', import.meta.url).href,
-		preload: true,
-	},
-} as const;
+	 sound: {
+            type: 'audio',
+            src: new URL('../../assets/audio/sounds.json', import.meta.url).href,
+            preload: true,
+    },
+
+	        S_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/specials/Scatter/SYM_SCATTER.svg', import.meta.url).href,
+        },
+        W_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/specials/Wild/SYM_WILDFIRE_FS.svg', import.meta.url).href,
+        },
+        M_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/specials/Multiplier/SYM_MULTIPLIER.svg', import.meta.url).href,
+        },
+        C_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/sprites/specials/Coin/SYM_COIN_MAELSTROM.svg', import.meta.url).href,
+            preload: true,
+        },
+        T_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/sprites/specials/Lightning/SYM_LIGHTNING_SUPERCELL.svg', import.meta.url).href,
+            preload: true,
+        },
+        I_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/sprites/specials/Ice/SYM_ICE_SUBZERO.svg', import.meta.url).href,
+            preload: true,
+        },
+
+        bgBase: {
+            type: 'sprite',
+            src: new URL('../../static/assets/sprites/background/bg_base_landscape.jpg', import.meta.url).href,
+            preload: true,
+        },
+        bgBasePortrait: {
+            type: 'sprite',
+            src: new URL('../../static/assets/sprites/background/bg_base_portrait.jpg', import.meta.url).href,
+            preload: true,
+        },
+        bgWildfire: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/boards/backgrounds/wildfire/BG_WILDFIRE.svg', import.meta.url).href,
+        },
+        bgMaelstrom: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/boards/backgrounds/maelstrom/BG_MAELSTROM.svg', import.meta.url).href,
+        },
+        bgSupercell: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/boards/backgrounds/supercell/BG_SUPERCELL.svg', import.meta.url).href,
+        },
+        bgSubzero: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/boards/backgrounds/subzero/BG_SUBZERO.svg', import.meta.url).href,
+        },
+        base6x5Frame: {
+            type: 'sprite',
+            src: new URL('../../static/assets/sprites/reelsFrame/reels_frame_6x5.svg', import.meta.url).href,
+            preload: true,
+        },
+        H1_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/symbols/H1/Wildfire.svg', import.meta.url).href,
+        },
+        H2_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/symbols/H2/Maelstrom.svg', import.meta.url).href,
+        },
+        H3_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/symbols/H3/Supercell.svg', import.meta.url).href,
+        },
+        H4_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/symbols/H4/Subzero.svg', import.meta.url).href,
+        },
+        L1_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/symbols/L1/SYM_L1.svg', import.meta.url).href,
+        },
+        L2_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/symbols/L2/SYM_L2.svg', import.meta.url).href,
+        },
+        L3_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/symbols/L3/SYM_L3.svg', import.meta.url).href,
+        },
+        L4_svg: {
+            type: 'sprite',
+            src: new URL('../../static/assets/elemental_fury/symbols/L4/SYM_L4.svg', import.meta.url).href,
+        },
+    } as const;

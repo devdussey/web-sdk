@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 import { recordBookEvent, checkIsMultipleRevealEvents, type BookEventHandlerMap } from 'utils-book';
-import { stateBet } from 'state-shared';
+import { stateBet, stateUrlDerived } from 'state-shared';
 
 import { eventEmitter } from './eventEmitter';
 import { playBookEvent } from './utils';
@@ -48,7 +48,9 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		const isBonusGame = checkIsMultipleRevealEvents({ bookEvents });
 		if (isBonusGame) {
 			eventEmitter.broadcast({ type: 'stopButtonEnable' });
-			recordBookEvent({ bookEvent });
+			if (stateUrlDerived.rgsUrl()) {
+				recordBookEvent({ bookEvent });
+			}
 		}
 
 		stateGame.gameType = bookEvent.gameType;
@@ -91,28 +93,36 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 	setTotalWin: async (bookEvent: BookEventOfType<'setTotalWin'>) => {
 		stateBet.winBookEventAmount = bookEvent.amount;
 	},
-	freeSpinTrigger: async (bookEvent: BookEventOfType<'freeSpinTrigger'>) => {
+	freeSpinTrigger: async (bookEvent: BookEventOfType<'freeSpinTrigger'>, { bookEvents }: BookEventContext) => {
 		// animate scatters
 		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_scatter_win_v2' });
 		await animateSymbols({ positions: bookEvent.positions });
-		// show free spin intro
-		eventEmitter.broadcast({ type: 'soundOnce', name: 'sfx_superfreespin' });
+
+		// find element from subsequent riftRevealInfo or state
+		const riftEvent = bookEvents?.find(
+			(e) => e?.type === 'riftRevealInfo',
+		) as BookEventOfType<'riftRevealInfo'> | undefined;
+		const element = riftEvent?.element ?? (stateGame.currentElement || 'wildfire');
+		stateGame.currentElement = element;
+
+		// show rift reveal sequence
 		await eventEmitter.broadcastAsync({ type: 'uiHide' });
 		await eventEmitter.broadcastAsync({ type: 'transition' });
-		eventEmitter.broadcast({ type: 'freeSpinIntroShow' });
-		eventEmitter.broadcast({ type: 'soundOnce', name: 'jng_intro_fs' });
 		eventEmitter.broadcast({ type: 'soundMusic', name: 'bgm_freespin' });
+		eventEmitter.broadcast({ type: 'riftRevealShow' });
 		await eventEmitter.broadcastAsync({
-			type: 'freeSpinIntroUpdate',
+			type: 'riftRevealUpdate',
+			element,
 			totalFreeSpins: bookEvent.totalFs,
 		});
+		eventEmitter.broadcast({ type: 'riftRevealHide' });
+
 		stateGame.gameType = 'freeSpins';
 		// Fresh elemental round: whichever of the four elements gets rolled starts with
 		// a clean slate regardless of what the previous freegame round left behind.
 		stateGame.coinTotal = 0;
 		stateGame.subzeroLives = 3;
 		stateGame.frozenIce = [];
-		eventEmitter.broadcast({ type: 'freeSpinIntroHide' });
 		eventEmitter.broadcast({ type: 'boardFrameGlowShow' });
 		eventEmitter.broadcast({ type: 'globalMultiplierShow' });
 		await eventEmitter.broadcastAsync({
@@ -128,6 +138,9 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 		await eventEmitter.broadcastAsync({ type: 'uiShow' });
 		await eventEmitter.broadcastAsync({ type: 'drawerButtonShow' });
 		eventEmitter.broadcast({ type: 'drawerFold' });
+	},
+	riftRevealInfo: async (bookEvent: BookEventOfType<'riftRevealInfo'>) => {
+		stateGame.currentElement = bookEvent.element;
 	},
 	updateFreeSpin: async (bookEvent: BookEventOfType<'updateFreeSpin'>) => {
 		eventEmitter.broadcast({ type: 'freeSpinCounterShow' });
@@ -152,6 +165,7 @@ export const bookEventHandlerMap: BookEventHandlerMap<BookEvent, BookEventContex
 
 		await eventEmitter.broadcastAsync({ type: 'uiHide' });
 		stateGame.gameType = 'basegame';
+		stateGame.currentElement = null;
 		eventEmitter.broadcast({ type: 'boardFrameGlowHide' });
 		eventEmitter.broadcast({ type: 'globalMultiplierHide' });
 		eventEmitter.broadcast({ type: 'freeSpinOutroShow' });

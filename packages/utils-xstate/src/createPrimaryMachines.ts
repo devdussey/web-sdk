@@ -7,15 +7,57 @@ import { requestBet, requestEndRound } from 'rgs-requests';
 import type { BaseBet } from './types';
 
 const handleRequestBet = async ({ onError }: { onError: () => void }) => {
-	try {
-		const data = await requestBet({
-			rgsUrl: stateUrlDerived.rgsUrl(),
-			sessionID: stateUrlDerived.sessionID(),
-			currency: stateBet.currency,
-			mode: stateBet.activeBetModeKey,
-			amount: stateBet.betAmount,
-		});
+        try {
+            if (!stateUrlDerived.rgsUrl()) {
+                // Standalone local dev mode: spin reels cleanly without an RGS server
+                stateBet.wageredBetAmount = stateBet.betAmount;
+                stateBet.balanceAmount = Math.max(0, stateBet.balanceAmount -
+stateBet.
+  betAmount);
+                return {
+                    round: {
+                        id: 'mock_round_1',
+                        state: [
+                            {
+                                index: 0,
+                                type: 'reveal',
+                                board: [
+                                    [{ name: 'H1' }, { name: 'L1' }, { name: 'H2' },
+{ name: 'L2' }, {
+  name: 'H3' }],
+                                    [{ name: 'L2' }, { name: 'H4' }, { name: 'L3' },
+{ name: 'H1' }, {
+  name: 'L1' }],
+                                    [{ name: 'H3' }, { name: 'L1' }, { name: 'H2' },
+{ name: 'L4' }, {
+  name: 'H2' }],
+                                    [{ name: 'L4' }, { name: 'H1' }, { name: 'L2' },
+{ name: 'H3' }, {
+  name: 'L3' }],
+                                    [{ name: 'H2' }, { name: 'L3' }, { name: 'H4' },
+{ name: 'L1' }, {
+  name: 'H4' }],
+                                    [{ name: 'L1' }, { name: 'H2' }, { name: 'L4' },
+{ name: 'H1' }, {
+  name: 'L2' }],
+                                ],
+                                paddingPositions: [],
+                                anticipation: [],
+                                gameType: 'basegame',
+                            },
+                            { index: 1, type: 'finalWin', amount: 0 },
+                        ],
+                    },
+                };
+            }
 
+            const data = await requestBet({
+                rgsUrl: stateUrlDerived.rgsUrl(),
+                sessionID: stateUrlDerived.sessionID(),
+                currency: stateBet.currency,
+                mode: stateBet.activeBetModeKey,
+                amount: stateBet.betAmount,
+            });
 		if (data?.error) {
 			throw data;
 		}
